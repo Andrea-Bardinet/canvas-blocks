@@ -1,0 +1,19 @@
+.SwitchButton{
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgba(255,255,255,0.1);
+    box-shadow: 1px 1px 5px black;
+}
+
+.SwitchButton > img {
+    width: 50px;
+    height: 50px;  
+    transition: background-color .3s ease-in-out;
+    background-color: transparent;
+}
+
+.SwitchButton > .active {
+    background-color: rgba(255,255,255,0.2);
+}
