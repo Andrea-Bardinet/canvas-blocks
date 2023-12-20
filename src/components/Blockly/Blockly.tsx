@@ -11,20 +11,17 @@ import './style.css'
 
 interface BlocklyProps {
     onMount: Function,
-    isHiddenDefault: boolean
 }
 
 export interface IBlockly {
     getJs: Function,
     getXml: Function,
-    setIsHidden: Function
 }
 
 const Blockly = (props: BlocklyProps) => {
 
     const workspaceRef = useRef("")
     const xmlRef = useRef(defaultXml)
-    const [isHidden, setIsHidden] = useState<boolean>(props.isHiddenDefault)
 
     const getJs = (): string => {
         return javascriptGenerator.workspaceToCode(workspaceRef.current);
@@ -40,8 +37,7 @@ const Blockly = (props: BlocklyProps) => {
         addCodeGenerator()
         props.onMount({
             getJs,
-            getXml,
-            setIsHidden
+            getXml
         } as IBlockly)
     }
 
@@ -49,7 +45,7 @@ const Blockly = (props: BlocklyProps) => {
         <BlocklyWorkspace
             toolboxConfiguration={toolbox}
             initialXml={xmlRef.current}
-            className={"Blockly " + (isHidden ? "hidden" : "")}
+            className={"Blockly " }
             workspaceConfiguration={{
                 grid: {
                     spacing: 20,

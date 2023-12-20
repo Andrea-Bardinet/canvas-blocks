@@ -15,7 +15,6 @@ enum CodeEditorFile {
 
 export interface CodeEditorProps {
     onMount: Function
-    isHiddenDefault: boolean
     blockly: IBlockly
 }
 
@@ -23,7 +22,6 @@ export interface ICodeEditor {
     setBlockly: Function
     getCode: Function
     getEditor: Function
-    setIsHidden: Function
     setCode: Function
 }
 
@@ -43,7 +41,6 @@ const CodeEditor = (props: CodeEditorProps) => {
     const editorRef = useRef<IEditorRef>();
     const monacoRef = useRef();
     const blocklyRef = useRef<IBlockly>(props.blockly)
-    const [isHidden, setIsHidden] = useState(props.isHiddenDefault)
 
     const getEditor = () => {
         return editorRef.current
@@ -68,7 +65,6 @@ const CodeEditor = (props: CodeEditorProps) => {
         props.onMount({
             getCode,
             getEditor,
-            setIsHidden,
             setCode,
             setBlockly
         } as ICodeEditor)
@@ -84,7 +80,7 @@ const CodeEditor = (props: CodeEditorProps) => {
     })
 
     return (
-        <div className={'Editor ' + (isHidden ? "hidden" : "")}>
+        <div className={'Editor ' }>
             <div className='EditorNav'>
                 <SwitchButton
                     default={editorFile == CodeEditorFile.Xml}

@@ -19,7 +19,8 @@
     "react-blockly": "^8.1.0",
     "react-dom": "^18.2.0",
     "react-sliding-pane": "^7.3.0",
-    "react-tooltip": "^5.25.0"
+    "react-tooltip": "^5.25.0",
+    "split-pane-react": "^0.1.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

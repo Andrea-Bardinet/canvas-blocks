@@ -73,11 +73,11 @@ const ReactTerminal = (props: TerminalProps) => {
         <div className={"Terminal " + (isOpen ? "TerminalOpen " : "TerminalClose")}>
             <div className="TerminalBanner">
                 <h1>Terminal  </h1>
-                <img src={openSvg}
+                {/* <img src={openSvg}
                     className={"TerminalImage" + (isOpen ? " TerminalImageFlip" : "")}
                     onClick={() => {
                         setIsOpen(!isOpen)
-                    }}></img>
+                    }}></img> */}
 
             </div>
             <div className="TerminalLines" id="TerminalLines"></div>
