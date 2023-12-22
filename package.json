@@ -14,6 +14,7 @@
     "@monaco-editor/react": "^4.6.0",
     "blockly": "^10.2.2",
     "date-fns": "^2.30.0",
+    "markdown-to-jsx": "^7.3.2",
     "monaco-editor": "^0.45.0",
     "react": "^18.2.0",
     "react-blockly": "^8.1.0",
@@ -31,6 +32,7 @@
     "eslint": "^8.53.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
+    "sass": "^1.69.5",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
   }

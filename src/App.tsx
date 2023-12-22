@@ -1,18 +1,16 @@
 import { useState, useRef, useEffect } from 'react'
 import './App.css'
 import Blockly, { IBlockly } from './components/Blockly/Blockly'
-import playSvg from './assets/play.svg'
-import blockSvg from './assets/block.svg'
-import editorSvg from './assets/editor.svg'
-import minimizeSvg from './assets/minimize.svg'
-import maximizeSvg from './assets/maximize.svg'
 import canvasFunctions from './utils/canvas-functions'
-import SwitchButton from './components/SwitchButton/SwitchButton'
 import { Tooltip } from 'react-tooltip';
 import Terminal, { ITerminal } from './components/Terminal/Terminal'
 import CodeEditor, { ICodeEditor } from './components/CodeEditor/CodeEditor'
-import SplitPane from 'split-pane-react'
+import SplitPane, { Pane } from 'split-pane-react'
+import MainNav from './components/MainNav/MainNav';
 
+const MIN_SIZE = '70px'
+const MAX_SIZE = "500px"
+const MIN_IN_MAX_SIZE = "200px"
 
 function App() {
 
@@ -21,12 +19,15 @@ function App() {
   const terminalRef = useRef<ITerminal>()
   const [, setBlocklyMountState] = useState(false)
   const [canvasMaximize, setCanvasMaximize] = useState(true)
+  const [navSize, setNavSize] = useState(false)
 
+  const [centralPanelSizes, setCentralPanelSizes] = useState<(number | string)[]>([MIN_SIZE, 'auto', '300px',]);
+  const [leftPanelSizes, setLeftPanelSizes] = useState<(number | string)[]>([500, 1,]);
+  const [rightPanelSizes, setRightPanelSizes] = useState<(number | string)[]>([300, 200,]);
 
-  const [centralPanelSizes, setCentralPanelSizes] = useState<(number | string)[]>([300, 200,]);
-  const [leftPanelSizes, setLeftPanelSizes] = useState<(number | string)[]>([300, 200,]);
-  const [rightPanelSizes, setRightPanelSizes] = useState<(number | string)[]>([200, 200,]);
-
+  useEffect(()=>{
+    // setCentralPanelSizes([MIN_SIZE, 3, 1,])
+  },[])
 
   const execute = () => {
     let code = blocklyRef.current?.getJs()
@@ -38,9 +39,18 @@ function App() {
     if (event.code === 'Enter' && event.ctrlKey) execute()
   }
 
+  useEffect(() => {
+    if (navSize) {
+      setCentralPanelSizes([MAX_SIZE, centralPanelSizes[1], centralPanelSizes[2],])
+    } else {
+      setCentralPanelSizes([MIN_SIZE,'auto','300px',])
+    }
+  }, [navSize])
+
   return (
     <>
       <div className='app' onKeyUpCapture={onKeyEvent}>
+
         <SplitPane
           className=''
           split='vertical'
@@ -48,7 +58,16 @@ function App() {
           onChange={(sizes) => setCentralPanelSizes(sizes)}
         >
 
+          <Pane minSize={navSize?MIN_IN_MAX_SIZE:MIN_SIZE} maxSize={navSize ? MAX_SIZE : MIN_SIZE}  >
 
+
+            <MainNav
+              onClickExecute={execute}
+              onCanvasMaximize={setCanvasMaximize}
+              bigSize={false}
+              onSizeEvent={setNavSize}></MainNav>
+
+          </Pane>
           <SplitPane
             className='left-side'
             split='horizontal'
@@ -75,42 +94,13 @@ function App() {
           </SplitPane>
 
 
+
           <div className='right-side'>
-
-
-            <nav>
-              <div className='left-panel'>
-              </div>
-
-              <div className='execution'>
-                <img className='nav-svg' onClick={execute} src={playSvg}
-                  data-tooltip-id="my-tooltip"
-                  data-tooltip-content={"Run code (Ctrl+Shift+E)"}
-                ></img>
-              </div>
-
-              <div className='right-panel'>
-                <SwitchButton
-                  img1={minimizeSvg}
-                  img2={maximizeSvg}
-                  value1={false}
-                  value2={true}
-                  default={true}
-                  tooltip1='Minimize canvas'
-                  tooltip2='Maximize canvas'
-                  onChange={(value: any) => { setCanvasMaximize(value) }}
-                ></SwitchButton>
-
-              </div>
-            </nav>
-
-
             <SplitPane
               className='test'
               split='horizontal'
               sizes={rightPanelSizes}
-              onChange={(sizes) => setRightPanelSizes(sizes)}
-            >
+              onChange={(sizes) => setRightPanelSizes(sizes)}>
               <div className='canvas-wrapper'>
                 <canvas className='main-canvas'
                   id='main-canvas'
@@ -118,15 +108,15 @@ function App() {
                   width="100"
                   style={{ width: canvasMaximize ? "80%" : "auto" }}></canvas>
               </div>
-
               <Terminal isOpenDefault={false} onMount={(value: ITerminal) => { terminalRef.current = value }}></Terminal>
-
-
             </SplitPane>
           </div>
+
+
         </SplitPane>
       </div>
-      {/* </div > */}
+
+
       <Tooltip id="my-tooltip"></Tooltip>
     </>
   )

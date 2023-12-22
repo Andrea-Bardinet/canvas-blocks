@@ -1,4 +1,4 @@
-import { useState} from 'react'
+import { useRef, useState} from 'react'
 import { Tooltip } from 'react-tooltip';
 import './style.css'
 
@@ -10,12 +10,15 @@ interface SwitchButtonProps {
     default: boolean,
     tooltip1: string,
     tooltip2: string,
-    onChange: Function | undefined
+    onChange: Function | undefined,
+    vertical: boolean,
+    backgroundColor: string,
 }
 
 const SwitchButton = (props: SwitchButtonProps) => {
 
     const [active, setActive] = useState(props.default)
+    const verticalRef = useRef<boolean>(props.vertical)
 
     const clickEvent = (value : any) => {
         setActive(value)
@@ -26,7 +29,10 @@ const SwitchButton = (props: SwitchButtonProps) => {
 
     return (
         <>
-            <div className='SwitchButton'>
+            <div className={'SwitchButton '+(verticalRef.current?"SwitchButtonVertical":"")}
+            style={{
+                backgroundColor: props.backgroundColor
+            }}>
                 <img src={props.img1}
                     className={!active ? "active" : ""}
                     onClick={() => { clickEvent(false) }}

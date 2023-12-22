@@ -9,7 +9,12 @@ body {
   /* display: flex; */
   /* flex-direction: row; */
   height: 100vh;
+  max-height: 100vh;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .left-side{
@@ -29,41 +34,6 @@ body {
 }
 
 
-nav {
-  background-color: #1d1d22;
-  height: 70px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 25px;
-  padding-right: 25px;
-  border-bottom: solid 3px #131317;
-}
-
-nav > div{
-  /* border-left: solid 1px  gray; */
-  /* border-right: solid 1px gray; */
-  /* background-color: rgba(255, 255, 255, 0.01); */
-  margin: 5px;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  flex-grow: 1
-}
-
-.nav-svg {
-  width: 50px;
-  height: 50px;
-}
-
-.nav-svg:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-}
-
 .canvas-wrapper {
   width: 100%;
   height: 100%;
@@ -78,13 +48,9 @@ nav > div{
   border: solid 1px black;
   /* width: 80%; */
   /* height: 80%; */
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 600px;
+  max-height: 600px;
   background-color: white;
   image-rendering: pixelated;
 }
 
-.test{
-  height: 100%;
-  width: 100%;
-}

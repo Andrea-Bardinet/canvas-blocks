@@ -1,0 +1,97 @@
+.Exercises {
+    width: 100%;
+
+    height: 98vh;
+    flex-grow: 1;
+    // background-color: aliceblue;
+    margin: 5px;
+    overflow-y: scroll;
+    direction:rtl; 
+
+
+    #scroll{
+        direction:rtl; }
+
+    .Exercise {
+        direction: ltr;
+        color: aliceblue;
+        display: flex;
+        flex-direction: column;
+        margin: 5px;
+        border-radius: 5px;
+        border: solid 1px rgba(255, 255, 255, 0.527);
+        border-radius: 15px;
+        // height: 100vh;
+        transition: height .4s ease-in-out;
+        overflow: hidden;
+
+
+        .ExerciseTitle {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex-grow: 1;
+            height: auto;
+            min-height: 50px;
+            padding-left: 10px;
+            padding-right: 10px;
+            background-color: rgba(200, 200, 255, 0.2);
+            transition: height 1s ease;
+
+            h1 {
+                margin: 0;
+                font-weight: bold;
+
+            }
+
+            img {
+                width: 30px;
+                rotate: 180deg;
+                transition: rotate .2s ease-in;
+            }
+
+            img:hover {
+                // background-color: rgba(255,255,255,0.5);
+            }
+
+
+            .flip {
+                rotate: 0deg;
+            }
+
+        }
+
+        .ExerciseTitle:hover{
+                background-color: rgba(200,200,255,0.1);
+            
+        }
+
+        .MD {
+            padding-top: 20px;
+            flex-grow: 100;
+            padding-left: 10px;
+        }
+
+        .MD>div {
+            display: flex;
+            flex-direction: column;
+
+            // justify-content: left;
+            // align-items: left;
+            // align-content: left;
+            width: 100%;
+
+
+        }
+    }
+
+    .Exercise:hover {
+        background-color: rgba(200, 200, 255, 0.2);
+    }
+
+
+
+
+}
