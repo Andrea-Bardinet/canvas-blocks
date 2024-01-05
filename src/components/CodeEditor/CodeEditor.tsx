@@ -9,8 +9,8 @@ import loadingSvg from './assets/loading.svg'
 
 
 enum CodeEditorFile {
-    Js,
-    Xml
+    Js = 0,
+    Xml = 1
 }
 
 export interface CodeEditorProps {
@@ -52,6 +52,7 @@ const CodeEditor = (props: CodeEditorProps) => {
     }
 
     const setCode = (value: string) => {
+        
         editorRef?.current?.setValue(value)
     }
 
@@ -74,10 +75,16 @@ const CodeEditor = (props: CodeEditorProps) => {
 
     useEffect(() => {
         let code = ""
+        // console.log(editorFile);
+        
         if (editorFile == CodeEditorFile.Js) code = blocklyRef.current.getJs()
         if (editorFile == CodeEditorFile.Xml) code = blocklyRef.current.getXml()
+
+        // console.log(code);
+        
+        
         setCode(code)
-    })
+    },)
 
     return (
         <div className={'Editor ' }>
@@ -94,6 +101,8 @@ const CodeEditor = (props: CodeEditorProps) => {
                     tooltip2='Workspace XML'
                     value1={CodeEditorFile.Js}
                     value2={CodeEditorFile.Xml}
+                    vertical={false}
+                    backgroundColor='#ffffff22'
                 ></SwitchButton>
             </div>
             {

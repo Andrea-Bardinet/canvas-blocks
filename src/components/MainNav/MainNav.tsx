@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState} from 'react'
 import playSvg from './assets/play.svg'
-import editorSvg from './assets/editor.svg'
+// import editorSvg from './assets/editor.svg'
 import minimizeSvg from './assets/minimize.svg'
 import maximizeSvg from './assets/maximize.svg'
 import tableSvg from "./assets/table.svg"
@@ -15,11 +15,13 @@ type MainNavProps = {
     onCanvasMaximize: Function
     onSizeEvent: Function
     bigSize: boolean
+    // onXmlWorkspace : boolean
 }
 
 type MainNav = {
     onSizeChange: Function;
 }
+
 
 
 

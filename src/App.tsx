@@ -25,14 +25,20 @@ function App() {
   const [leftPanelSizes, setLeftPanelSizes] = useState<(number | string)[]>([500, 1,]);
   const [rightPanelSizes, setRightPanelSizes] = useState<(number | string)[]>([300, 200,]);
 
-  useEffect(()=>{
+  useEffect(() => {
     // setCentralPanelSizes([MIN_SIZE, 3, 1,])
-  },[])
+  }, [])
 
   const execute = () => {
-    let code = blocklyRef.current?.getJs()
+    let blockly_code: string = blocklyRef.current?.getJs()
+    let code: string = `
+    console.log("heyeye");
+    ${canvasFunctions}
+    (async ()=>{${blockly_code}})()`
+
     console.log(code);
-    terminalRef.current?.execute(canvasFunctions + "\n" + code)
+
+    terminalRef.current?.execute(code)
   }
 
   const onKeyEvent = (event: React.KeyboardEvent<any>) => {
@@ -43,7 +49,7 @@ function App() {
     if (navSize) {
       setCentralPanelSizes([MAX_SIZE, centralPanelSizes[1], centralPanelSizes[2],])
     } else {
-      setCentralPanelSizes([MIN_SIZE,'auto','300px',])
+      setCentralPanelSizes([MIN_SIZE, 'auto', '300px',])
     }
   }, [navSize])
 
@@ -56,9 +62,9 @@ function App() {
           split='vertical'
           sizes={centralPanelSizes}
           onChange={(sizes) => setCentralPanelSizes(sizes)}
-        >
+          sashRender={() => { return 0 }}        >
 
-          <Pane minSize={navSize?MIN_IN_MAX_SIZE:MIN_SIZE} maxSize={navSize ? MAX_SIZE : MIN_SIZE}  >
+          <Pane minSize={navSize ? MIN_IN_MAX_SIZE : MIN_SIZE} maxSize={navSize ? MAX_SIZE : MIN_SIZE}  >
 
 
             <MainNav
@@ -69,6 +75,7 @@ function App() {
 
           </Pane>
           <SplitPane
+            sashRender={() => { return 0 }}
             className='left-side'
             split='horizontal'
             sizes={leftPanelSizes}
@@ -97,6 +104,7 @@ function App() {
 
           <div className='right-side'>
             <SplitPane
+              sashRender={() => { return 0 }}
               className='test'
               split='horizontal'
               sizes={rightPanelSizes}

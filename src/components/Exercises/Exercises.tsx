@@ -1,9 +1,12 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 import Markdown from 'markdown-to-jsx'
 import './style.scss'
 import tutorialMD from '../../exercises/tutorial/tutorial.md?raw'
+import movingFadeMD from '../../exercises/easy/moving-fade.md?raw'
 import arrowSvg from "./assets/arrow.svg"
-import WorkspaceButton from '../WorkspaceButton/WorkspaceButton'
+import { SingletonBlockly } from '../Blockly/Blockly'
+import WorkspaceXML from '../../utils/default-xml'
+
 
 enum Level {
     basic = "Basic",
@@ -15,25 +18,32 @@ enum Level {
 export interface IExercise {
     title: string,
     mdFile: string,
-    lvl: Level
+    lvl: Level,
+    workspace: string
 }
 
 const EXERCISES : Array<IExercise> = [
     {
         title: "Bloc programming",
         mdFile: tutorialMD,
-        lvl: Level.basic
-    },{
+        lvl: Level.basic,
+        workspace: WorkspaceXML.tutorial
+    },
+    {
+        title: "Moving fade",
+        mdFile: movingFadeMD,
+        lvl: Level.easy,
+        workspace: WorkspaceXML.movingFade
+    },
+    {
         title: "1D Game of Life",
         mdFile: tutorialMD,
-        lvl: Level.easy
+        lvl: Level.easy,
+        workspace: WorkspaceXML.gameOfLife1D
     }
 
 ]
 
-type ExercisesProps = {
-
-}
 
 type ExerciseProps = {
     exercise: IExercise
@@ -43,10 +53,16 @@ const Exercise = (props: ExerciseProps) => {
 
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
+    const onWorkspaceButtonClick = (xml : string)=>{
+        let blockly = SingletonBlockly.getBlockly()
+        blockly.setXml(xml)
+    }
+
     return (
         <div className='Exercise' style={{
-            height: isOpen ? "80vh" : "50px",
-            backgroundColor: isOpen ? "rgba(200, 200, 255, 0.2)" : ""  
+            height: isOpen ? "100%" : "50px",
+            backgroundColor: isOpen ? "rgba(200, 200, 255, 0.2)" : "",
+            overflowY: isOpen?"scroll":"hidden"
         }}
         // onClick={() => (isOpen?()=>{}:setIsOpen(!isOpen))}
         >
@@ -60,15 +76,15 @@ const Exercise = (props: ExerciseProps) => {
             </div>
             {
                 <div className='MD'>
-                    <
-                    <Markdown>{tutorialMD}</Markdown>
+                    <button onClick={()=>onWorkspaceButtonClick(props.exercise.workspace)}>Importer le workspace ➡️</button>
+                    <Markdown>{props.exercise.mdFile}</Markdown>
                 </div>
             }
         </div>
     )
 }
 
-const Exercises = (props: ExercisesProps) => {
+const Exercises = (/* props: ExercisesProps */) => {
 
     return (
         <div className='Exercises'>

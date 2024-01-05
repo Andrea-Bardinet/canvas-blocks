@@ -9,13 +9,12 @@
 
 - Ajouter plein de blocks 
 - Créer plein d'exemples
+- Ajouter des tab de workspaces
 
 ### Blocks à créer :
 
-- Ajouter ligne
 - KeyEvent
 - colorier 1px
-- sleep
 
 ### Exemples a ajouter :
 

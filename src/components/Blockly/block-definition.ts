@@ -1,6 +1,6 @@
 let runned = false
 
-const addCustomBlocks = (Blockly) => {
+const addCustomBlocks = (Blockly : any) => {
 
   if (runned) return
   runned = true
@@ -183,6 +183,71 @@ const addCustomBlocks = (Blockly) => {
         {
           "type": "input_value",
           "name": "colour"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 230,
+      "tooltip": "",
+      "helpUrl": ""
+    },{
+      "type": "draw_line",
+      "message0": "Draw Line %1 x1 %2 y1 %3 x2 %4 y2 %5 lineWidth %6 colour %7",
+      "args0": [
+        {
+          "type": "input_dummy"
+        },
+        {
+          "type": "input_value",
+          "name": "x1",
+          "check": "Number",
+          "align": "RIGHT"
+        },
+        {
+          "type": "input_value",
+          "name": "y1",
+          "check": "Number",
+          "align": "RIGHT"
+        },
+        {
+          "type": "input_value",
+          "name": "x2",
+          "check": "Number",
+          "align": "RIGHT"
+        },
+        {
+          "type": "input_value",
+          "name": "y2",
+          "check": "Number",
+          "align": "RIGHT"
+        },
+        {
+          "type": "input_value",
+          "name": "lineWidth",
+          "check": "Number",
+          "align": "RIGHT"
+        },
+        {
+          "type": "input_value",
+          "name": "colour",
+          "align": "RIGHT"
+        }
+      ],
+      "inputsInline": true,
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 230,
+      "tooltip": "Draw Line from (x1;y1) to (x2;y2)",
+      "helpUrl": ""
+    },{
+      "type": "sleep",
+      "message0": "Sleep %1 secondes",
+      "args0": [
+        {
+          "type": "input_value",
+          "name": "time",
+          "check": "Number"
         }
       ],
       "inputsInline": true,
