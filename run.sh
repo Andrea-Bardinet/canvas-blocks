@@ -1,1 +1,6 @@
-docker run -d -p 80:80 canvas_blocks:latest
+docker container stop nginx
+docker container stop traefik
+docker container remove nginx
+docker container remove traefik
+
+docker-compose up -d  
