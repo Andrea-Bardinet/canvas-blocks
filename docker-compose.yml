@@ -39,8 +39,7 @@ services:
     networks:
       - nginx
     volumes:
-     - ./templates:/etc/nginx/templates
-     - ./src:/usr/share/nginx/html
+     - ./dist:/usr/share/nginx/html
     ports:
      - "8080:80"
     labels:
