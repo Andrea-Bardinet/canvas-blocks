@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  traefik:
+    image: traefik:v2.5
+    command:
+      - --api.insecure=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  mon_projet:
+    image: votre_image_du_projet:latest  # Remplacez cette ligne par le nom de votre image Docker
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mon_projet.rule=Host(`projet.mon-site.com`)"
+      - "traefik.http.services.mon_projet.loadbalancer.server.port=80"  # Remplacez par le port sur lequel votre serveur web s'exécute
