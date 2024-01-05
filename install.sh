@@ -1,5 +1,4 @@
 npm install
 npm run build
-docker build -t canvas_blocks:latest .
 
-
+docker-compose up -d  
