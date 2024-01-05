@@ -9,13 +9,12 @@ import loadingSvg from './assets/loading.svg'
 
 
 enum CodeEditorFile {
-    Js,
-    Xml
+    Js = 0,
+    Xml = 1
 }
 
 export interface CodeEditorProps {
     onMount: Function
-    isHiddenDefault: boolean
     blockly: IBlockly
 }
 
@@ -23,7 +22,6 @@ export interface ICodeEditor {
     setBlockly: Function
     getCode: Function
     getEditor: Function
-    setIsHidden: Function
     setCode: Function
 }
 
@@ -43,7 +41,6 @@ const CodeEditor = (props: CodeEditorProps) => {
     const editorRef = useRef<IEditorRef>();
     const monacoRef = useRef();
     const blocklyRef = useRef<IBlockly>(props.blockly)
-    const [isHidden, setIsHidden] = useState(props.isHiddenDefault)
 
     const getEditor = () => {
         return editorRef.current
@@ -55,6 +52,7 @@ const CodeEditor = (props: CodeEditorProps) => {
     }
 
     const setCode = (value: string) => {
+        
         editorRef?.current?.setValue(value)
     }
 
@@ -68,7 +66,6 @@ const CodeEditor = (props: CodeEditorProps) => {
         props.onMount({
             getCode,
             getEditor,
-            setIsHidden,
             setCode,
             setBlockly
         } as ICodeEditor)
@@ -78,13 +75,19 @@ const CodeEditor = (props: CodeEditorProps) => {
 
     useEffect(() => {
         let code = ""
+        // console.log(editorFile);
+        
         if (editorFile == CodeEditorFile.Js) code = blocklyRef.current.getJs()
         if (editorFile == CodeEditorFile.Xml) code = blocklyRef.current.getXml()
+
+        // console.log(code);
+        
+        
         setCode(code)
-    })
+    },)
 
     return (
-        <div className={'Editor ' + (isHidden ? "hidden" : "")}>
+        <div className={'Editor ' }>
             <div className='EditorNav'>
                 <SwitchButton
                     default={editorFile == CodeEditorFile.Xml}
@@ -98,6 +101,8 @@ const CodeEditor = (props: CodeEditorProps) => {
                     tooltip2='Workspace XML'
                     value1={CodeEditorFile.Js}
                     value2={CodeEditorFile.Xml}
+                    vertical={false}
+                    backgroundColor='#ffffff22'
                 ></SwitchButton>
             </div>
             {

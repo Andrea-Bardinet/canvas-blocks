@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import format from "date-fns/format";
 import './style.css'
-import openSvg from "./assets/open-terminal.svg"
+// import openSvg from "./assets/open-terminal.svg"
 
 interface TerminalProps {
     onMount: Function,
@@ -57,7 +57,7 @@ window.addTerminalLine = (str: string) => {
 const ReactTerminal = (props: TerminalProps) => {
 
 
-    const [isOpen, setIsOpen] = useState(props.isOpenDefault)
+    const [isOpen,] = useState(props.isOpenDefault)
 
     const execute = (code: string) => {
         eval(code)
@@ -73,11 +73,11 @@ const ReactTerminal = (props: TerminalProps) => {
         <div className={"Terminal " + (isOpen ? "TerminalOpen " : "TerminalClose")}>
             <div className="TerminalBanner">
                 <h1>Terminal  </h1>
-                <img src={openSvg}
+                {/* <img src={openSvg}
                     className={"TerminalImage" + (isOpen ? " TerminalImageFlip" : "")}
                     onClick={() => {
                         setIsOpen(!isOpen)
-                    }}></img>
+                    }}></img> */}
 
             </div>
             <div className="TerminalLines" id="TerminalLines"></div>

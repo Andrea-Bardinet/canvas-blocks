@@ -1016,6 +1016,101 @@ export default {
           'kind': 'block',
           'type': 'get_pixel_color_canvas'
         },
+        {
+          'kind': 'block',
+          'type': "draw_line",
+          "inputs": {
+            "x1": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "y1": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            }
+            ,
+            "x2": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 30
+                }
+              }
+            }
+            ,
+            "y2": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 30
+                }
+              }
+            }
+            ,
+            "lineWidth": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "colour": {
+              "block": {
+                'type': 'colour_rgb',
+                'kind': 'block',
+                'inputs': {
+                  'RED': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 100,
+                      },
+                    },
+                  },
+                  'GREEN': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 50,
+                      },
+                    },
+                  },
+                  'BLUE': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 0,
+                      },
+                    },
+                  },
+                },
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "sleep",
+          "inputs": {
+            "time": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 1
+                }
+              }
+            },
+          }
+        }
       ]
     }
   ],

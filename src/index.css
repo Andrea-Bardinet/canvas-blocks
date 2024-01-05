@@ -5,22 +5,36 @@ html, body{
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 50px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   background: #555;
+  width: 5px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 50px;
+
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
+  width: 5px;
+  margin-top: 50px;
+
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #bababa;
+  width: 5px;
+  margin-top: 50px;
+
 }
 
 .hidden {
@@ -56,4 +70,58 @@ html, body{
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+}
+
+.react-split {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+.react-split__pane {
+  height: 100%;
+  position: absolute;
+  white-space: normal;
+  width: 100%;
+  overflow: hidden;
+}
+.react-split__sash {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: background-color 0.1s;
+  width: 100%;
+  z-index: 2;
+}
+.react-split__sash--disabled {
+  pointer-events: none;
+}
+.react-split__sash--vertical {
+  cursor: col-resize;
+}
+.react-split__sash--horizontal {
+  cursor: row-resize;
+}
+.react-split__sash-content {
+  width: 100%;
+  height: 100%;
+}
+.react-split__sash-content--active {
+  background-color: #175ede;
+}
+.react-split--dragging.react-split--vertical {
+  cursor: col-resize;
+}
+.react-split--dragging.react-split--horizontal {
+  cursor: row-resize;
+}
+body.react-split--disabled {
+  user-select: none;
+}
+.split-sash-content {
+  width: 100%;
+  height: 100%;
+}
+.split-sash-content.split-sash-content-vscode.split-sash-content-active {
+  background-color: #175ede;
 }

@@ -1,10 +1,17 @@
 .SwitchButton{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
     overflow: hidden;
-    background-color: rgba(255,255,255,0.1);
-    box-shadow: 1px 1px 5px black;
+    
+}
+
+.SwitchButtonVertical{
+    flex-direction: column;
+    width: auto;
+    max-width: 50px;
 }
 
 .SwitchButton > img {
@@ -15,5 +22,5 @@
 }
 
 .SwitchButton > .active {
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.5);
 }
