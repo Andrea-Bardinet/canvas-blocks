@@ -9,6 +9,7 @@ import SwitchButton from "../SwitchButton/SwitchButton"
 import './style.css'
 import LockableButton from '../LockableButton/LockableButton'
 import Exercises from '../Exercises/Exercises'
+import oakLogBg from '../../assets/textures/oak_log.png'
 
 type MainNavProps = {
     onClickExecute: Function
@@ -35,7 +36,11 @@ const MainNav = (props: MainNavProps) => {
     }
 
     return (
-        <nav className={'MainNav ' + (props.bigSize ? "MainNavBig" : "MainNavSmall")}>
+        <nav className={'MainNav ' + (props.bigSize ? "MainNavBig" : "MainNavSmall")}
+        style={{
+            backgroundImage: `url(${oakLogBg})`
+        }}
+        >
 
             {
                 sizeState ?

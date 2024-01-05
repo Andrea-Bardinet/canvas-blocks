@@ -62,7 +62,7 @@ function App() {
           split='vertical'
           sizes={centralPanelSizes}
           onChange={(sizes) => setCentralPanelSizes(sizes)}
-          sashRender={() => { return 0 }}        >
+          sashRender={() => { return "" }}        >
 
           <Pane minSize={navSize ? MIN_IN_MAX_SIZE : MIN_SIZE} maxSize={navSize ? MAX_SIZE : MIN_SIZE}  >
 
@@ -75,7 +75,7 @@ function App() {
 
           </Pane>
           <SplitPane
-            sashRender={() => { return 0 }}
+            sashRender={() => { return "" }}
             className='left-side'
             split='horizontal'
             sizes={leftPanelSizes}
@@ -104,7 +104,7 @@ function App() {
 
           <div className='right-side'>
             <SplitPane
-              sashRender={() => { return 0 }}
+              sashRender={() => { return "" }}
               className='test'
               split='horizontal'
               sizes={rightPanelSizes}

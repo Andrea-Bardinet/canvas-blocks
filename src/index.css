@@ -5,36 +5,22 @@ html, body{
 
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  border-radius: 50px;
+  width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   background: #555;
-  width: 5px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  border-radius: 50px;
-
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
-  width: 5px;
-  margin-top: 50px;
-
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #bababa;
-  width: 5px;
-  margin-top: 50px;
-
 }
 
 .hidden {

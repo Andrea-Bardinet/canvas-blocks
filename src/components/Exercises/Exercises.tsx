@@ -6,6 +6,9 @@ import movingFadeMD from '../../exercises/easy/moving-fade.md?raw'
 import arrowSvg from "./assets/arrow.svg"
 import { SingletonBlockly } from '../Blockly/Blockly'
 import WorkspaceXML from '../../utils/default-xml'
+import stoneBrickBg from '../../assets/textures/stone_bricks.png'
+import oakPlanksBg from '../../assets/textures/oak_planks.png'
+
 
 
 enum Level {
@@ -61,8 +64,9 @@ const Exercise = (props: ExerciseProps) => {
     return (
         <div className='Exercise' style={{
             height: isOpen ? "100%" : "50px",
-            backgroundColor: isOpen ? "rgba(200, 200, 255, 0.2)" : "",
-            overflowY: isOpen?"scroll":"hidden"
+            // backgroundColor: isOpen ? "rgba(200, 200, 255, 0.2)" : "",
+            overflowY: isOpen?"scroll":"hidden",
+            backgroundImage: `url(${oakPlanksBg})`
         }}
         // onClick={() => (isOpen?()=>{}:setIsOpen(!isOpen))}
         >
@@ -87,7 +91,10 @@ const Exercise = (props: ExerciseProps) => {
 const Exercises = (/* props: ExercisesProps */) => {
 
     return (
-        <div className='Exercises'>
+        <div className='Exercises'
+        style={{
+            backgroundImage: `url(${stoneBrickBg})`
+        }}>
             {
                 EXERCISES.map((exercise: IExercise,key: number)=>{
                     return (

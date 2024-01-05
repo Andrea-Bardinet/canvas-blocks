@@ -8,15 +8,19 @@
   width: auto;
   display: flex;
   flex-direction: row;
-  padding: 10px;
   /* transition: all 1s ease; */
   height: 100%;
+  padding: 0;
 }
 
 .MainNavBig{
 }
 
 .MainNavSmall{
+}
+
+.MainNavControl{
+  padding: 10px;
 }
 
 
