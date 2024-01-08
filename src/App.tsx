@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from 'react'
 import './App.css'
 import Blockly, { IBlockly } from './components/Blockly/Blockly'
-import canvasFunctions from './utils/canvas-functions'
 import { Tooltip } from 'react-tooltip';
 import Terminal, { ITerminal } from './components/Terminal/Terminal'
 import CodeEditor, { ICodeEditor } from './components/CodeEditor/CodeEditor'
 import SplitPane, { Pane } from 'split-pane-react'
 import MainNav from './components/MainNav/MainNav';
+import darkOakPlanks from './assets/textures/dark_oak_planks.png'
 
 const MIN_SIZE = '70px'
 const MAX_SIZE = "500px"
@@ -31,9 +31,9 @@ function App() {
 
   const execute = () => {
     let blockly_code: string = blocklyRef.current?.getJs()
+    // ${canvasFunctions}
     let code: string = `
     console.log("heyeye");
-    ${canvasFunctions}
     (async ()=>{${blockly_code}})()`
 
     console.log(code);
@@ -109,7 +109,7 @@ function App() {
               split='horizontal'
               sizes={rightPanelSizes}
               onChange={(sizes) => setRightPanelSizes(sizes)}>
-              <div className='canvas-wrapper'>
+              <div className='canvas-wrapper' style={{backgroundImage: `url(${darkOakPlanks})`}}>
                 <canvas className='main-canvas'
                   id='main-canvas'
                   height="100"

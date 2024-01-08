@@ -45,12 +45,14 @@ body {
 }
 
 .main-canvas {
-  border: solid 1px black;
+  border: solid 7px rgb(177, 80, 0);
   /* width: 80%; */
   /* height: 80%; */
   max-width: 600px;
   max-height: 600px;
   background-color: white;
   image-rendering: pixelated;
+  box-shadow: 3px 3px 7px black;
+
 }
 

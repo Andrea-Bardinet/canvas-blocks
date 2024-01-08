@@ -40,10 +40,16 @@ const EXERCISES : Array<IExercise> = [
     },
     {
         title: "1D Game of Life",
-        mdFile: tutorialMD,
-        lvl: Level.easy,
+        mdFile: movingFadeMD,
+        lvl: Level.medium,
         workspace: WorkspaceXML.gameOfLife1D
-    }
+    },
+    {
+        title: "Plus ou moins",
+        mdFile: movingFadeMD,
+        lvl: Level.easy,
+        workspace: WorkspaceXML.plusOuMoins
+    },
 
 ]
 

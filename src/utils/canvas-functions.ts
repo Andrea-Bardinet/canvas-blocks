@@ -1,42 +1,74 @@
-export default `
-
-const canvas = document.getElementById("main-canvas")
-const ctx = canvas.getContext("2d");
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-const fill = (x, y, width, height, color)=>{
-    ctx.fillStyle = color;
-    ctx.fillRect(x,y,width,height)
+declare global {
+    interface Window { 
+        canvas: any;
+        ctx : any;
+        sleep :any;
+        fill:any;
+        write:any;
+        setCanvasSize:any;
+        colourRgb:any;
+        getPixelColor:any;
+        drawLine:any;
+    }
 }
 
-const write = (x, y, text,size, color) => {
-    ctx.fillStyle = color;
-    ctx.font = size+"px serif";
-    ctx.fillText(text, x, y);
+const addCanvasFunction = () => {
+
+    window.canvas = document.getElementById("main-canvas")
+    window.ctx = window.canvas.getContext("2d");
+
+    //@ts-ignore
+    window.sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+    //@ts-ignore
+    window.fill = (x, y, width, height, color) => {
+        window.ctx.fillStyle = color;
+        window.ctx.fillRect(x, y, width, height)
+    }
+
+    //@ts-ignore
+    window.write = (x, y, text, size, color) => {
+        window.ctx.fillStyle = color;
+        window.ctx.font = size + "px serif";
+        window.ctx.fillText(text, x, y);
+    }
+
+    //@ts-ignore
+    window.setCanvasSize = (width, height) => {
+        window.canvas.width = width
+        window.canvas.height = height
+    }
+
+    //@ts-ignore
+    window.colourRgb = (r, g, b)=> {
+        r = Math.max(Math.min(Number(r), 100), 0) * 2.55;
+        g = Math.max(Math.min(Number(g), 100), 0) * 2.55;
+        b = Math.max(Math.min(Number(b), 100), 0) * 2.55;
+        r = ('0' + (Math.round(r) || 0).toString(16)).slice(-2);
+        g = ('0' + (Math.round(g) || 0).toString(16)).slice(-2);
+        b = ('0' + (Math.round(b) || 0).toString(16)).slice(-2);
+        return '#' + r + g + b;
+    }
+
+    //@ts-ignore
+    window.getPixelColor = (x, y) => {
+        const img = window.ctx.getImageData(x, y, 1, 1).data;
+        return window.colourRgb(img[0], img[1], img[2])
+    }
+
+    //@ts-ignore
+    window.drawLine = (x1, y1, x2, y2, lineWidth, color) => {
+        window.ctx.beginPath();
+        window.ctx.moveTo(x1, y1);
+        window.ctx.lineTo(x2, y2);
+        window.ctx.strokeStyle = color;
+        window.ctx.lineWidth = lineWidth;
+        window.ctx.stroke();
+    }
+
 }
 
-const setCanvasSize = (width, height)=>{
-    canvas.width = width
-    canvas.height = height
-}
-
-const getPixelColor = (x,y)=>{
-    const img = ctx.getImageData(x, y, 1, 1).data;
-    return \`rgba(\${img[0]},\${img[1]},\${img[2]})\`
-}
-
-const drawLine = (x1,y1,x2,y2,lineWidth,color)=>{
-    ctx.beginPath(); 
-    ctx.moveTo(x1, y1); 
-    ctx.lineTo(x2, y2); 
-    ctx.strokeStyle = color;
-    ctx.lineWidth = lineWidth;
-    ctx.stroke(); 
-}
-
-
-`
+export default addCanvasFunction;
 
 
 
