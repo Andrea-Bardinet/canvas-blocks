@@ -8,7 +8,7 @@ import addCanvasFunction from '../../utils/canvas-functions';
 import DarkTheme from '@blockly/theme-dark';
 import { BlocklyWorkspace } from 'react-blockly';
 import { javascriptGenerator } from 'blockly/javascript';
-import WorkspaceXML from '../../utils/default-xml';
+// import WorkspaceXML from '../../utils/default-xml';
 import './style.css'
 
 interface BlocklyProps {
