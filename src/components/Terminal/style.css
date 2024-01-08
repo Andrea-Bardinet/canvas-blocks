@@ -25,6 +25,9 @@
     font-size: 30px;
     display: flex;
     align-items: center;
+    width: 100%;
+    /* color: white; */
+    text-shadow: 5px 5px 5px black;
 }
 
 .TerminalImage {

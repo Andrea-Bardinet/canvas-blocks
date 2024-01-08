@@ -1,8 +1,9 @@
-import {  useRef } from 'react'
+import {  useEffect, useRef } from 'react'
 import BlocklyApp from 'blockly'
 import toolbox from './toolbox';
 import addCustomBlocks from './block-definition';
 import addCodeGenerator from './code-generator'
+import addCanvasFunction from '../../utils/canvas-functions';
 // @ts-ignore
 import DarkTheme from '@blockly/theme-dark';
 import { BlocklyWorkspace } from 'react-blockly';
@@ -37,7 +38,7 @@ export class SingletonBlockly {
 const Blockly = (props: BlocklyProps) => {
 
     const workspaceRef = useRef<BlocklyApp.Workspace>()
-    const xmlRef = useRef<string>(WorkspaceXML.DEFAULT)
+    const xmlRef = useRef<string>(localStorage.getItem("workspaceXml")??"")
 
     const getJs = (): string => {
         return javascriptGenerator.workspaceToCode(workspaceRef.current);
@@ -69,6 +70,10 @@ const Blockly = (props: BlocklyProps) => {
         }
     }
 
+    useEffect(()=>{
+        addCanvasFunction()
+    },[])
+
     const onBlocklyInject = (workspace: any) => {
         workspaceRef.current = workspace
         addCustomBlocks(BlocklyApp)
@@ -90,7 +95,7 @@ const Blockly = (props: BlocklyProps) => {
                 grid: {
                     spacing: 20,
                     length: 3,
-                    colour: "#555",
+                    // colour: "#00000",
                     snap: true,
                 },
                 theme: DarkTheme,
@@ -108,6 +113,7 @@ const Blockly = (props: BlocklyProps) => {
             // onWorkspaceChange={workspaceDidChange}
             onXmlChange={(xml) => {
                 xmlRef.current = xml
+                localStorage.setItem("workspaceXml", xml);
             }}
         />
     )

@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from 'react'
 import './App.css'
 import Blockly, { IBlockly } from './components/Blockly/Blockly'
-import canvasFunctions from './utils/canvas-functions'
 import { Tooltip } from 'react-tooltip';
 import Terminal, { ITerminal } from './components/Terminal/Terminal'
 import CodeEditor, { ICodeEditor } from './components/CodeEditor/CodeEditor'
 import SplitPane, { Pane } from 'split-pane-react'
 import MainNav from './components/MainNav/MainNav';
+import darkOakPlanks from './assets/textures/dark_oak_planks.png'
 
 const MIN_SIZE = '70px'
 const MAX_SIZE = "500px"
@@ -31,9 +31,9 @@ function App() {
 
   const execute = () => {
     let blockly_code: string = blocklyRef.current?.getJs()
+    // ${canvasFunctions}
     let code: string = `
     console.log("heyeye");
-    ${canvasFunctions}
     (async ()=>{${blockly_code}})()`
 
     console.log(code);
@@ -62,7 +62,7 @@ function App() {
           split='vertical'
           sizes={centralPanelSizes}
           onChange={(sizes) => setCentralPanelSizes(sizes)}
-          sashRender={() => { return 0 }}        >
+          sashRender={() => { return "" }}        >
 
           <Pane minSize={navSize ? MIN_IN_MAX_SIZE : MIN_SIZE} maxSize={navSize ? MAX_SIZE : MIN_SIZE}  >
 
@@ -75,7 +75,7 @@ function App() {
 
           </Pane>
           <SplitPane
-            sashRender={() => { return 0 }}
+            sashRender={() => { return "" }}
             className='left-side'
             split='horizontal'
             sizes={leftPanelSizes}
@@ -104,12 +104,12 @@ function App() {
 
           <div className='right-side'>
             <SplitPane
-              sashRender={() => { return 0 }}
+              sashRender={() => { return "" }}
               className='test'
               split='horizontal'
               sizes={rightPanelSizes}
               onChange={(sizes) => setRightPanelSizes(sizes)}>
-              <div className='canvas-wrapper'>
+              <div className='canvas-wrapper' style={{backgroundImage: `url(${darkOakPlanks})`}}>
                 <canvas className='main-canvas'
                   id='main-canvas'
                   height="100"

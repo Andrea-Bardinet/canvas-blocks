@@ -2,8 +2,6 @@
 
 ## Interface : 
 
-- navigation sidebar left
-
 
 ## blockly
 
@@ -22,14 +20,9 @@
 
 ## tutoriel :
 
- - ecrire texte
- - tracer ligne
- - colorier des pixels et des zones
-
 ## easy :
 
  - jeu de plus ou moins
- - jeu de la vie 1d
  - tracer un rond a partir de coo aleatoires
 
  ## medium
@@ -38,7 +31,8 @@
  - snake
 
 
-- Jeu snake et tron
+
+
 - Tracer des courbes
 - Generer du bruit
 
@@ -57,5 +51,3 @@
 
 
 ## en cours
-
-- debug build

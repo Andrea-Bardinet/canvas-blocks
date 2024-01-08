@@ -11,7 +11,7 @@ const addCodeGenerator = () => {
         var number_canvas_width = block.getFieldValue('canvas_width');
         var number_canvas_height = block.getFieldValue('canvas_height');
         // TODO: Assemble javascript into code variable.
-        var code = `setCanvasSize(${number_canvas_width},${number_canvas_height})\n`;
+        var code = `window.setCanvasSize(${number_canvas_width},${number_canvas_height})\n`;
         return code;
     };
 
@@ -22,7 +22,7 @@ const addCodeGenerator = () => {
         var value_height = generator.valueToCode(block, 'height', Order.ATOMIC);
         var colour_name = block.getFieldValue('NAME');
         // TODO: Assemble javascript into code variable.
-        var code = `fill(${value_x},${value_y},${value_witdh},${value_height},'${colour_name}')\n`;
+        var code = `window.fill(${value_x},${value_y},${value_witdh},${value_height},'${colour_name}')\n`;
         return code;
     };
 
@@ -33,7 +33,7 @@ const addCodeGenerator = () => {
         var value_height = generator.valueToCode(block, 'height', Order.ATOMIC);
         var colour_name = generator.valueToCode(block, 'colour', Order.ATOMIC);
         // TODO: Assemble javascript into code variable.
-        var code = `fill(${value_x},${value_y},${value_witdh},${value_height},${colour_name})\n`;
+        var code = `window.fill(${value_x},${value_y},${value_witdh},${value_height},${colour_name})\n`;
         return code;
     };
 
@@ -44,7 +44,7 @@ const addCodeGenerator = () => {
         var value_text_size = generator.valueToCode(block, 'text_size', Order.ATOMIC);
         var colour_name = block.getFieldValue('NAME');
         // TODO: Assemble javascript into code variable.
-        var code = `write(${value_x},${value_y},${value_text},${value_text_size},'${colour_name}')\n`;
+        var code = `window.write(${value_x},${value_y},${value_text},${value_text_size},'${colour_name}')\n`;
         return code;
     };
 
@@ -52,7 +52,7 @@ const addCodeGenerator = () => {
         var value_x = generator.valueToCode(block, 'x', Order.ATOMIC);
         var value_y = generator.valueToCode(block, 'y', Order.ATOMIC);
         // TODO: Assemble javascript into code variable.
-        var code = `getPixelColor(${value_x},${value_y})\n`;
+        var code = `window.getPixelColor(${value_x},${value_y})\n`;
         // TODO: Change ORDER_NONE to the correct strength.
         return [code, Order.ADDITION];
     };
@@ -72,14 +72,14 @@ const addCodeGenerator = () => {
         var value_linewidth = generator.valueToCode(block, 'lineWidth', Order.ATOMIC);
         var value_colour = generator.valueToCode(block, 'colour', Order.ATOMIC);
         // TODO: Assemble javascript into code variable.
-        var code = `drawLine(${value_x1},${value_y1},${value_x2},${value_y2},${value_linewidth},${value_colour})\n`;
+        var code = `window.drawLine(${value_x1},${value_y1},${value_x2},${value_y2},${value_linewidth},${value_colour})\n`;
         return code;
     };
 
     javascriptGenerator.forBlock['sleep'] = function (block:any, generator:any) {
         var value_time = generator.valueToCode(block, 'time', Order.ATOMIC);
         // TODO: Assemble javascript into code variable.
-        var code = `await sleep(${value_time*1000})\n`;
+        var code = `await window.sleep(${value_time*1000})\n`;
         return code;
     };
 

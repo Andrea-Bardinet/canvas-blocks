@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import format from "date-fns/format";
 import './style.css'
+import bedrock from '../../assets/textures/bedrock.png'
 // import openSvg from "./assets/open-terminal.svg"
 
 interface TerminalProps {
@@ -52,8 +53,6 @@ window.addTerminalLine = (str: string) => {
 }
 
 
-
-
 const ReactTerminal = (props: TerminalProps) => {
 
 
@@ -72,7 +71,9 @@ const ReactTerminal = (props: TerminalProps) => {
     return (
         <div className={"Terminal " + (isOpen ? "TerminalOpen " : "TerminalClose")}>
             <div className="TerminalBanner">
-                <h1>Terminal  </h1>
+                <h1 
+                // style={{backgroundImage: `url(${bedrock})`}}
+                >Terminal  </h1>
                 {/* <img src={openSvg}
                     className={"TerminalImage" + (isOpen ? " TerminalImageFlip" : "")}
                     onClick={() => {
