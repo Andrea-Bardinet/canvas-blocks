@@ -83,6 +83,16 @@ const addCodeGenerator = () => {
         return code;
     };
 
+    javascriptGenerator.forBlock['draw_circle'] = function (block:any, generator:any) {
+        var value_x = generator.valueToCode(block, 'x', Order.ATOMIC);
+        var value_y = generator.valueToCode(block, 'y', Order.ATOMIC);
+        var value_radius = generator.valueToCode(block, 'radius', Order.ATOMIC);
+        var value_colour = generator.valueToCode(block, 'colour', Order.ATOMIC);
+
+        var code = `window.drawCircle(${value_x},${value_y},${value_radius},${value_colour})\n`;
+        return code;
+    }
+
 }
 
 export default addCodeGenerator;

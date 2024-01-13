@@ -32,14 +32,14 @@ services:
       - /docker/letsencrypt:/letsencrypt
     container_name: traefik
 
-  nginx:
-    container_name: nginx
+  canvas_blocks:
+    container_name: canvas_blocks
     image: nginx
     restart: always
     networks:
       - nginx
     volumes:
-     - ./dist:/usr/share/nginx/html
+     - ./canvas-blocks/dist:/usr/share/nginx/html
     ports:
      - "8080:80"
     labels:
@@ -52,6 +52,28 @@ services:
     environment:
      - NGINX_HOST=andreabardinet.fr
      - NGINX_PORT=80
+
+  portfolio:
+    container_name: portfolio
+    image: nginx
+    restart: always
+    networks:
+      - nginx
+    volumes:
+     - ./portfolio/dist:/usr/share/nginx/html
+    ports:
+     - "8081:80"
+    labels:
+      - traefik.enable=true
+      - traefik.port=80
+      - traefik.http.routers.nginx.rule=Host(`portfolio.andreabardinet.fr`)
+      - traefik.http.routers.nginx.entrypoints=websecure
+      - traefik.http.routers.nginx.tls=true
+      - traefik.http.routers.nginx.tls.certresolver=myresolver
+    environment:
+     - NGINX_HOST=andreabardinet.fr
+     - NGINX_PORT=80
+
 
 
 networks:

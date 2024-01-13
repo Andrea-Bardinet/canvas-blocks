@@ -21,7 +21,7 @@ export interface IBlockly {
     setXml: Function,
 }
 
-export class SingletonBlockly {
+export class SingletonBlockly { 
     private static blockly: IBlockly;
 
     constructor(blockly: any) {

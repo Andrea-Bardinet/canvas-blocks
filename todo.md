@@ -22,7 +22,6 @@
 
 ## easy :
 
- - jeu de plus ou moins
  - tracer un rond a partir de coo aleatoires
 
  ## medium

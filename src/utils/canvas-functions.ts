@@ -66,6 +66,14 @@ const addCanvasFunction = () => {
         window.ctx.stroke();
     }
 
+    //@ts-ignore
+    window.drawCircle = (x, y, radius, color) => {
+        window.ctx.beginPath();
+        window.ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        window.ctx.fillStyle = color;
+        window.ctx.fill();
+    }
+
 }
 
 export default addCanvasFunction;

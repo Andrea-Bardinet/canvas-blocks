@@ -22,6 +22,23 @@ declare global {
 
 const MAX_LINES = 100;
 
+class TerminalSingleton {
+
+    private static ref: TerminalSingleton;
+
+    constructor() {
+        if (!TerminalSingleton.ref) {
+            TerminalSingleton.ref = this
+        }
+    }
+
+    static getTerminal = (): TerminalSingleton => {
+        return TerminalSingleton.ref
+    }
+
+    
+}
+
 
 window.nbTerminalLine = 0
 
@@ -71,7 +88,7 @@ const ReactTerminal = (props: TerminalProps) => {
     return (
         <div className={"Terminal " + (isOpen ? "TerminalOpen " : "TerminalClose")}>
             <div className="TerminalBanner">
-                <h1 
+                <h1
                 // style={{backgroundImage: `url(${bedrock})`}}
                 >Terminal  </h1>
                 {/* <img src={openSvg}

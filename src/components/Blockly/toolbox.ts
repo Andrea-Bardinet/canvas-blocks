@@ -1110,6 +1110,68 @@ export default {
               }
             },
           }
+        },
+        {
+          "kind": "block",
+          "type": "draw_circle",
+          "inputs": {
+            "x": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "y": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "radius": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "colour": {
+              "block": {
+                'type': 'colour_rgb',
+                'kind': 'block',
+                'inputs': {
+                  'RED': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 100,
+                      },
+                    },
+                  },
+                  'GREEN': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 50,
+                      },
+                    },
+                  },
+                  'BLUE': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 0,
+                      },
+                    },
+                  },
+                },
+              }
+            }
+          },
         }
       ]
     }
