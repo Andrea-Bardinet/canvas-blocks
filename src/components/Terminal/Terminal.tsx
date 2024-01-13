@@ -22,22 +22,22 @@ declare global {
 
 const MAX_LINES = 100;
 
-class TerminalSingleton {
+// class TerminalSingleton {
 
-    private static ref: TerminalSingleton;
+//     private static ref: TerminalSingleton;
 
-    constructor() {
-        if (!TerminalSingleton.ref) {
-            TerminalSingleton.ref = this
-        }
-    }
+//     constructor() {
+//         if (!TerminalSingleton.ref) {
+//             TerminalSingleton.ref = this
+//         }
+//     }
 
-    static getTerminal = (): TerminalSingleton => {
-        return TerminalSingleton.ref
-    }
+//     static getTerminal = (): TerminalSingleton => {
+//         return TerminalSingleton.ref
+//     }
 
-    
-}
+
+// }
 
 
 window.nbTerminalLine = 0
