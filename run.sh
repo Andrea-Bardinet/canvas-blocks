@@ -1,6 +1,5 @@
-docker container stop nginx
-docker container stop traefik
-docker container remove nginx
-docker container remove traefik
+docker container stop canvas-blocks && docker container remove canvas-blocks
+docker container stop portfolio && docker container remove portfolio
+docker container stop traefik && docker container remove traefik
 
-docker-compose up -d  
+docker-compose up -d
