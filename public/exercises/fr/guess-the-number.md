@@ -26,11 +26,7 @@ Utilisez une boucle `while` pour continuer le jeu jusqu'à ce que le joueur devi
 
 ![while loop block](blocks/loop_guessnumber.png)
 
-## Affichage du Score
-
-Affichez le score du joueur en utilisant les blocs `addTerminalLine`, `fill`, et `write`. Le joueur est informé si sa proposition est trop grande ou trop petite à l'aide de blocs conditionnels `if`.
-
-![addTerminalLine, fill, write, and if blocks](blocks/addTerminalLine_fill_write_if.png)
+Affichez le résultat du joueur en utilisant les blocs `fill`, et `write`. Le joueur est informé si sa proposition est trop grande ou trop petite à l'aide de blocs conditionnels `if`.
 
 ## Fin du Jeu
 

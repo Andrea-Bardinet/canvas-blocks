@@ -10,7 +10,7 @@ import darkOakPlanks from './assets/textures/dark_oak_planks.png'
 import { Translation } from './langs/translation';
 
 const MIN_SIZE = '70px'
-const MAX_SIZE = "500px"
+const MAX_SIZE = "700px"
 const MIN_IN_MAX_SIZE = "200px"
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
 
   const [centralPanelSizes, setCentralPanelSizes] = useState<(number | string)[]>([MIN_SIZE, 'auto', '300px',]);
   const [leftPanelSizes, setLeftPanelSizes] = useState<(number | string)[]>([500, 1,]);
-  const [rightPanelSizes, setRightPanelSizes] = useState<(number | string)[]>([300, 200,]);
+  const [rightPanelSizes, setRightPanelSizes] = useState<(number | string)[]>(['auto', '300px',]);
 
 
   const [, forceUpdate] = useReducer(x => x + 1, 0);
@@ -110,6 +110,7 @@ function App() {
 
           <div className='right-side'>
             <SplitPane
+
               sashRender={() => { return "" }}
               className='test'
               split='horizontal'
@@ -122,7 +123,10 @@ function App() {
                   width="100"
                   style={{ width: canvasMaximize ? "80%" : "auto" }}></canvas>
               </div>
+              <Pane minSize={'300px'} maxSize={'300px'}>
+
               <Terminal isOpenDefault={false} onMount={(value: ITerminal) => { terminalRef.current = value }}></Terminal>
+              </Pane>
             </SplitPane>
           </div>
 

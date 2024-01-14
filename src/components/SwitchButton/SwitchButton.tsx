@@ -1,6 +1,8 @@
 import { useRef, useState} from 'react'
 import { Tooltip } from 'react-tooltip';
 import './style.css'
+import ochreFroglight from '../../assets/textures/ochre_froglight_top.png'
+
 
 interface SwitchButtonProps {
     img1: string,
@@ -31,7 +33,9 @@ const SwitchButton = (props: SwitchButtonProps) => {
         <>
             <div className={'SwitchButton '+(verticalRef.current?"SwitchButtonVertical":"")}
             style={{
-                backgroundColor: props.backgroundColor
+                backgroundColor: props.backgroundColor,
+                backgroundImage: `url(${ochreFroglight})`
+
             }}>
                 <img src={props.img1}
                     className={!active ? "active" : ""}

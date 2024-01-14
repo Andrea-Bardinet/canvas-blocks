@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "KGPrimaryPenmanship2";
+    src: url("fonts/KGPrimaryPenmanship2.ttf");
+}
+@font-face {
+    font-family: "KGPrimaryItalics";
+    src: url("fonts/KGPrimaryItalics.ttf");
+}
+
 .Exercises {
     width: 100%;
 
@@ -8,11 +17,9 @@
     overflow-y: scroll;
     direction: rtl;
 
-
-
     .Exercise {
         direction: ltr;
-        color: black;
+        color: rgb(8, 1, 49);
         display: flex;
         flex-direction: column;
         margin: 5px;
@@ -21,19 +28,16 @@
         border-radius: 15px;
         height: auto;
         max-height: 80%;
-        transition: height .4s ease-in-out;
+        transition: height 0.4s ease-in-out;
 
         -ms-overflow-style: none;
         scrollbar-width: none;
 
         &::-webkit-scrollbar {
-            width: 0 !important
+            width: 0 !important;
         }
 
-
-
         .ExerciseTitle {
-
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -44,64 +48,110 @@
             padding-left: 10px;
             padding-right: 10px;
             // background-color: rgba(200, 200, 255, 0.2);
+            box-shadow: 0px 3px 15px black;
             transition: height 1s ease;
-            background-color: rgba(0, 0, 0, 0.05);
-
+            background-color: rgba(0, 0, 0, 0.1);
+            position: sticky;
+            left: 0;
+            top: 0;
             h1 {
+                font-family: "KGPrimaryPenmanship2";
                 margin: 0;
                 font-weight: bold;
-
+                text-align: center;
+                font-size: 2em;
+                flex-grow: 1;
             }
 
             img {
                 width: 30px;
-                rotate: 180deg;
-                transition: rotate .2s ease-in;
+                rotate: 0deg;
+                transition: rotate 0.2s ease-in;
             }
 
             // img:hover {
             //     // background-color: rgba(255,255,255,0.5);
             // }
 
-
             .flip {
-                rotate: 0deg;
+                rotate: -180deg;
             }
-
-
         }
 
         .ExerciseTitle:hover {
             background-color: rgba(0, 0, 0, 0.2);
+        }
 
+        .button-wrapper{
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            padding: 20px;
+            
+            button {
+                width: auto;
+                height: 50px;
+                background-color: rgb(3, 182, 45);
+                color: white;
+                font-size: 25px;
+                font-weight: bold;
+                // border: solid 3px  rgb(1, 150, 36) ;
+                border: none;
+                border-radius: 5px;
+                box-shadow: none;
+                
+                // flex-grow: 1;
+                transition: background-color 0.2s ease-in-out,
+                            border 0.2s ease-in-out,
+            }
+
+            button:hover{
+                background-color: rgb(1, 165, 32);
+            }
+
+            button:active{
+                background-color: rgb(1, 150, 36);
+                // border: solid 3px  rgb(1, 95, 23) ;
+            }
         }
 
         .MD {
-            padding-top: 20px;
             flex-grow: 100;
             padding-left: 10px;
             height: 100%;
             font-size: 18px;
             text-align: justify;
-            text-shadow: 1px 1px 2px rgb(97, 97, 97);
+            // text-shadow: 1px 1px 2px rgb(97, 97, 97);
             padding-right: 10px;
-            background-color: rgba(255, 255, 255, 0.1);
+            // background-color: rgba(255, 255, 255, 0.1);
+            font-family: 'KGPrimaryItalics';
+            font-size: 27px;
+
+            h1{
+                margin: 0;
+                padding: 10px;
+                font-family: "KGPrimaryPenmanship2";
+                font-size: 40px;
+            }
 
             h2 {
+                font-family: "KGPrimaryPenmanship2";
                 margin: 0;
+                padding: 5px;
                 font-size: 22px;
-                font-weight: 800;
-                text-decoration: underline;
+                font-size: 30px;
+            }
+
+            code{
+                background-color: rgba(127,127,127,0.5);
+                padding-left: 3px;
+                padding-right: 3px;
+                border-radius: 5px;
+                box-shadow: 1px 1px 2px black;
             }
 
 
-            button {
-                height: 40px;
-                background-color: blue;
-                color: white;
-                font-size: 18px;
-                font-weight: bold;
-            }
 
             div {
                 display: flex;
@@ -114,7 +164,8 @@
             }
 
             img {
-                max-width: 300px;
+                // max-width: 300px;
+                width: 100%;
             }
         }
     }
@@ -122,8 +173,4 @@
     .Exercise:hover {
         background-color: rgba(200, 200, 255, 0.2);
     }
-
-
-
-
 }

@@ -100,7 +100,7 @@ const Blockly = (props: BlocklyProps) => {
                 grid: {
                     spacing: 20,
                     length: 3,
-                    // colour: "#00000",
+                    colour: "#ffffff00",
                     snap: true,
                 },
                 theme: DarkTheme,

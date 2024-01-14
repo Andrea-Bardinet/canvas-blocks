@@ -11,6 +11,7 @@ import LockableButton from '../LockableButton/LockableButton'
 import Exercises from '../Exercises/Exercises'
 import oakLogBg from '../../assets/textures/oak_log.png'
 import { Translation, langs } from '../../langs/translation'
+import { Tooltip } from 'react-tooltip'
 
 type MainNavProps = {
     onClickExecute: Function
@@ -52,7 +53,7 @@ const MainNav = (props: MainNavProps) => {
 
                 <img className='nav-svg' src={playSvg}  //onClick={() => props.onClickExecute()} 
                     data-tooltip-id="my-tooltip"
-                    data-tooltip-content={t('MainNav-tooltipRun') + " (Ctrl+Shift+E)"}
+                    data-tooltip-content={t('MainNav-tooltipRun') + " (Ctrl+Enter)"}
                     onClick={() => props.onClickExecute()}
                 ></img>
 
@@ -76,11 +77,11 @@ const MainNav = (props: MainNavProps) => {
                     backgroundColor='#ffffff77'
                 ></SwitchButton>
 
-                <select className='language-select' onChange={(event) => Translation.getTranslation().setLang(event.target.value)}>
+                <select className='language-select' value={Translation.getTranslation().getLang()} onChange={(event) => Translation.getTranslation().setLang(event.target.value)}>
                     {
                         langs.map((lang: any, key: number) => {
                             return (
-                                <option key={key} value={lang.code} selected={Translation.getTranslation().getLang() == lang.code}>
+                                <option key={key} value={lang.code}>
                                     {lang.flag}
                                 </option>
                             )
@@ -89,6 +90,8 @@ const MainNav = (props: MainNavProps) => {
                 </select>
 
             </div>
+            <Tooltip id="my-tooltip"></Tooltip>
+
         </nav>
 
 

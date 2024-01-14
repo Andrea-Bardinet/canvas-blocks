@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Tooltip } from 'react-tooltip';
 import './style.css'
+import ochreFroglight from '../../assets/textures/ochre_froglight_top.png'
 
 
 interface LockableButtonProps {
@@ -21,7 +22,11 @@ const LockableButton = (props: LockableButtonProps) => {
 
     return (
         <>
-            <div className={'LockableButton ' + (isLocked ? "LockableButtonActive" : "")} onClick={clickEvent}>
+            <div className={'LockableButton ' + (isLocked ? "LockableButtonActive" : "")}
+             onClick={clickEvent}
+             style={{
+                backgroundImage: `url(${ochreFroglight})`
+             }}>
                 <img src={props.img}
                     data-tooltip-id="my-tooltip"
                     data-tooltip-content={props.tooltip}

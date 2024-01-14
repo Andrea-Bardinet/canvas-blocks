@@ -5,7 +5,7 @@ import arrowSvg from "./assets/arrow.svg"
 import { SingletonBlockly } from '../Blockly/Blockly'
 import WorkspaceXML from '../../utils/default-xml'
 import stoneBrickBg from '../../assets/textures/stone_bricks.png'
-import oakPlanksBg from '../../assets/textures/oak_planks.png'
+import yellowTerracotta from '../../assets/textures/yellow_terracotta.png'
 import { Translation } from '../../langs/translation'
 
 const t: Function = Translation.translate;
@@ -26,25 +26,25 @@ export interface IExercise {
 
 const EXERCISES: Array<IExercise> = [
     {
-        title: ()=>t("block_programming"),
+        title: () => t("block_programming"),
         mdFile: "tutorial",
         lvl: Level.basic,
         workspace: WorkspaceXML.tutorial
     },
     {
-        title: ()=>t("moving_fade"),
+        title: () => t("moving_fade"),
         mdFile: "moving-fade",
         lvl: Level.easy,
         workspace: WorkspaceXML.movingFade
     },
     {
-        title: ()=>t("1DGameOfLife"),
+        title: () => t("1DGameOfLife"),
         mdFile: "1DGameOfLife",
         lvl: Level.medium,
         workspace: WorkspaceXML.gameOfLife1D
     },
     {
-        title: ()=>t("Guess_the_number"),
+        title: () => t("Guess_the_number"),
         mdFile: "guess-the-number",
         lvl: Level.easy,
         workspace: WorkspaceXML.plusOuMoins
@@ -65,37 +65,40 @@ const Exercise = (props: ExerciseProps) => {
         blockly.setXml(xml)
     }
 
-    const getMd =() => Translation.getExercise(props.exercise.mdFile,setMd)
+    const getMd = () => Translation.getExercise(props.exercise.mdFile, setMd)
 
-    useEffect(()=>{
-       Translation.getTranslation().addOnChangeCallback(getMd) 
-    },[])
+    useEffect(() => {
+        Translation.getTranslation().addOnChangeCallback(getMd)
+    }, [])
 
-    useEffect(() => {  
-        if(isOpen)
+    useEffect(() => {
+        if (isOpen)
             getMd()
-    },[isOpen])
+    }, [isOpen])
 
     return (
         <div className='Exercise' style={{
             height: isOpen ? "100%" : "50px",
             overflowY: isOpen ? "scroll" : "hidden",
-            backgroundImage: `url(${oakPlanksBg})`
+            backgroundImage: `url(${yellowTerracotta})`
         }}>
             <div
                 className='ExerciseTitle'
-                onClick={() => setIsOpen(!isOpen)}>
+                onClick={() => setIsOpen(!isOpen)}
+                style={{
+                    backgroundImage: `url(${yellowTerracotta})`
+                }}>
                 <h1>{props.exercise.title()}</h1>
                 <img src={arrowSvg}
                     className={isOpen ? "flip" : ""}
                 ></img>
             </div>
-            {
-                <div className='MD'>
-                    <button onClick={() => onWorkspaceButtonClick(props.exercise.workspace)}>{t("Exercise-import-workspace") + " ➡️"}</button>
-                    <Markdown>{md}</Markdown>
-                </div>
-            }
+            <div className='button-wrapper' >
+                <button onClick={() => onWorkspaceButtonClick(props.exercise.workspace)}>{t("Exercise-import-workspace") + " ➡️"}</button>
+            </div>
+            <div className='MD'>
+                <Markdown>{md}</Markdown>
+            </div>
         </div>
     )
 }
