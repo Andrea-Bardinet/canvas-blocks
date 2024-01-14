@@ -1,14 +1,14 @@
-let runned = false
+import { Translation } from "../../langs/translation";
 
-const addCustomBlocks = (Blockly : any) => {
+const t: Function = Translation.translate;
 
-  if (runned) return
-  runned = true
+
+const addCustomBlocks = (Blockly: any) => {
 
   Blockly.defineBlocksWithJsonArray(
     [{
       "type": "resize_canvas",
-      "message0": "Define canvas size %1 Width: %2 px %3 Height: %4 px",
+      "message0": `${t("resize_canvas")} %1 ${t("width")}: %2 px %3 ${t("height")}: %4 px`,
       "args0": [
         {
           "type": "input_dummy"
@@ -37,7 +37,7 @@ const addCustomBlocks = (Blockly : any) => {
     },
     {
       "type": "fill_canvas",
-      "message0": "Fill zone in %1 x %2 x %3 witdh %4 height %5 color %6",
+      "message0": `${t("fill_canvas")}%1 x %2 x %3 ${t("width")} %4 ${t("height")} %5 ${t("color")} %6`,
       "args0": [
         {
           "type": "input_dummy"
@@ -76,7 +76,7 @@ const addCustomBlocks = (Blockly : any) => {
     },
     {
       "type": "write_text_canvas",
-      "message0": "Write text %1 x %2 y %3 text %4 text size (px) %5 color %6",
+      "message0": `${t("write_text_canvas")}%1 x %2 x %3 ${t("width")} %4 ${t("height")} %5 ${t("color")} %6`,
       "args0": [
         {
           "type": "input_dummy"
@@ -115,7 +115,7 @@ const addCustomBlocks = (Blockly : any) => {
     },
     {
       "type": "get_pixel_color_canvas",
-      "message0": "Get pixel color %1 x %2 y %3",
+      "message0": `${t("get_pixel_color_canvas")}%1 x %2 y %3`,
       "args0": [
         {
           "type": "input_dummy"
@@ -139,7 +139,7 @@ const addCustomBlocks = (Blockly : any) => {
     },
     {
       "type": "print",
-      "message0": "print in terminal %1",
+      "message0": `${t("print")}%1`,
       "args0": [
         {
           "type": "input_value",
@@ -155,7 +155,8 @@ const addCustomBlocks = (Blockly : any) => {
     },
     {
       "type": "fill_canvas_colour",
-      "message0": "Fill zone in %1 x %2 x %3 witdh %4 height %5 color %6",
+      // "message0": "Fill zone in %1 x %2 x %3 witdh %4 height %5 color %6",
+      "message0": `${t("fill_canvas")} %1 x %2 y %3 ${t("width")} %4 ${t("height")} %5 ${t("color")} %6`,
       "args0": [
         {
           "type": "input_dummy"
@@ -191,9 +192,9 @@ const addCustomBlocks = (Blockly : any) => {
       "colour": 230,
       "tooltip": "",
       "helpUrl": ""
-    },{
+    }, {
       "type": "draw_line",
-      "message0": "Draw Line %1 x1 %2 y1 %3 x2 %4 y2 %5 lineWidth %6 colour %7",
+      "message0": `${t("draw_line")} %1 x1 %2 y1 %3 x2 %4 y2 %5 ${t("lineWidth")} %6 ${t("color")} %7`,
       "args0": [
         {
           "type": "input_dummy"
@@ -240,9 +241,9 @@ const addCustomBlocks = (Blockly : any) => {
       "colour": 230,
       "tooltip": "Draw Line from (x1;y1) to (x2;y2)",
       "helpUrl": ""
-    },{
+    }, {
       "type": "sleep",
-      "message0": "Sleep %1 secondes",
+      "message0": `${t("sleep")} %1 ${t("seconds")}`,
       "args0": [
         {
           "type": "input_value",
@@ -256,9 +257,9 @@ const addCustomBlocks = (Blockly : any) => {
       "colour": 230,
       "tooltip": "",
       "helpUrl": ""
-    },{
+    }, {
       "type": "draw_circle",
-      "message0": "Draw Circle %1 x %2 y %3 radius %4 colour %5",
+      "message0": `${t("draw_circle")} %1 x %2 y %3 ${t("radius")} %4 ${t("color")} %5`,
       "args0": [
         {
           "type": "input_dummy"

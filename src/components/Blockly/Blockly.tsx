@@ -10,6 +10,7 @@ import { BlocklyWorkspace } from 'react-blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 // import WorkspaceXML from '../../utils/default-xml';
 import './style.css'
+import { Translation } from '../../langs/translation';
 
 interface BlocklyProps {
     onMount: Function,
@@ -72,6 +73,10 @@ const Blockly = (props: BlocklyProps) => {
 
     useEffect(()=>{
         addCanvasFunction()
+        Translation.getTranslation().addOnChangeCallback(()=>{
+            addCustomBlocks(BlocklyApp)
+            setXml(xmlRef.current)
+        })
     },[])
 
     const onBlocklyInject = (workspace: any) => {

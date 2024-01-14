@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useReducer } from 'react'
 import './App.css'
 import Blockly, { IBlockly } from './components/Blockly/Blockly'
 import { Tooltip } from 'react-tooltip';
@@ -7,6 +7,7 @@ import CodeEditor, { ICodeEditor } from './components/CodeEditor/CodeEditor'
 import SplitPane, { Pane } from 'split-pane-react'
 import MainNav from './components/MainNav/MainNav';
 import darkOakPlanks from './assets/textures/dark_oak_planks.png'
+import { Translation } from './langs/translation';
 
 const MIN_SIZE = '70px'
 const MAX_SIZE = "500px"
@@ -17,6 +18,7 @@ function App() {
   const codeEditorRef = useRef<ICodeEditor>();
   const blocklyRef = useRef<IBlockly>()
   const terminalRef = useRef<ITerminal>()
+
   const [, setBlocklyMountState] = useState(false)
   const [canvasMaximize, setCanvasMaximize] = useState(true)
   const [navSize, setNavSize] = useState(false)
@@ -25,8 +27,12 @@ function App() {
   const [leftPanelSizes, setLeftPanelSizes] = useState<(number | string)[]>([500, 1,]);
   const [rightPanelSizes, setRightPanelSizes] = useState<(number | string)[]>([300, 200,]);
 
+
+  const [, forceUpdate] = useReducer(x => x + 1, 0);
+
+
   useEffect(() => {
-    // setCentralPanelSizes([MIN_SIZE, 3, 1,])
+    Translation.getTranslation().addOnChangeCallback(forceUpdate)
   }, [])
 
   const execute = () => {
@@ -109,7 +115,7 @@ function App() {
               split='horizontal'
               sizes={rightPanelSizes}
               onChange={(sizes) => setRightPanelSizes(sizes)}>
-              <div className='canvas-wrapper' style={{backgroundImage: `url(${darkOakPlanks})`}}>
+              <div className='canvas-wrapper' style={{ backgroundImage: `url(${darkOakPlanks})` }}>
                 <canvas className='main-canvas'
                   id='main-canvas'
                   height="100"

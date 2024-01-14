@@ -1,4 +1,4 @@
-import { useState} from 'react'
+import { useState } from 'react'
 import playSvg from './assets/play.svg'
 // import editorSvg from './assets/editor.svg'
 import minimizeSvg from './assets/minimize.svg'
@@ -6,10 +6,11 @@ import maximizeSvg from './assets/maximize.svg'
 import tableSvg from "./assets/table.svg"
 import SwitchButton from "../SwitchButton/SwitchButton"
 
-import './style.css'
+import './style.scss'
 import LockableButton from '../LockableButton/LockableButton'
 import Exercises from '../Exercises/Exercises'
 import oakLogBg from '../../assets/textures/oak_log.png'
+import { Translation, langs } from '../../langs/translation'
 
 type MainNavProps = {
     onClickExecute: Function
@@ -28,33 +29,30 @@ type MainNav = {
 
 const MainNav = (props: MainNavProps) => {
 
+    const t: Function = Translation.translate;
     const [sizeState, setSizeState] = useState<boolean>(props.bigSize)
 
-    const onSizeEvent = (value : boolean)=>{
+    const onSizeEvent = (value: boolean) => {
         setSizeState(value)
         props.onSizeEvent(value)
     }
 
     return (
         <nav className={'MainNav ' + (props.bigSize ? "MainNavBig" : "MainNavSmall")}
-        style={{
-            backgroundImage: `url(${oakLogBg})`
-        }}
-        >
+            style={{
+                backgroundImage: `url(${oakLogBg})`
+            }}>
 
-            {
-                sizeState ?
-                    <Exercises></Exercises>
-                    : <></>
-            }
+            {sizeState ?
+                <Exercises></Exercises>
+                : <></>}
 
 
             <div className={'MainNavControl ' + (props.bigSize ? "MainNavControlBig" : "MainNavControlSmall")}>
 
-
                 <img className='nav-svg' src={playSvg}  //onClick={() => props.onClickExecute()} 
                     data-tooltip-id="my-tooltip"
-                    data-tooltip-content={"Run code (Ctrl+Shift+E)"}
+                    data-tooltip-content={t('MainNav-tooltipRun') + " (Ctrl+Shift+E)"}
                     onClick={() => props.onClickExecute()}
                 ></img>
 
@@ -63,9 +61,7 @@ const MainNav = (props: MainNavProps) => {
                     default={false}
                     img={tableSvg}
                     onChange={(value: boolean) => onSizeEvent(value)}
-                    tooltip='Table of content'></LockableButton>
-
-
+                    tooltip={t('MainNav-contentTable')}></LockableButton>
 
                 <SwitchButton
                     img1={minimizeSvg}
@@ -73,12 +69,24 @@ const MainNav = (props: MainNavProps) => {
                     value1={false}
                     value2={true}
                     default={true}
-                    tooltip1='Minimize canvas'
-                    tooltip2='Maximize canvas'
+                    tooltip1={t("MainNav-resize-tooltip1")}
+                    tooltip2={t("MainNav-resize-tooltip2")}
                     onChange={(value: any) => { props.onCanvasMaximize(value) }}
                     vertical={true}
                     backgroundColor='#ffffff77'
                 ></SwitchButton>
+
+                <select className='language-select' onChange={(event) => Translation.getTranslation().setLang(event.target.value)}>
+                    {
+                        langs.map((lang: any, key: number) => {
+                            return (
+                                <option key={key} value={lang.code} selected={Translation.getTranslation().getLang() == lang.code}>
+                                    {lang.flag}
+                                </option>
+                            )
+                        })
+                    }
+                </select>
 
             </div>
         </nav>

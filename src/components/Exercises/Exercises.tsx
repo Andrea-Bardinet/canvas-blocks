@@ -1,15 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Markdown from 'markdown-to-jsx'
 import './style.scss'
-import tutorialMD from '../../exercises/tutorial/tutorial.md?raw'
-import movingFadeMD from '../../exercises/easy/moving-fade.md?raw'
 import arrowSvg from "./assets/arrow.svg"
 import { SingletonBlockly } from '../Blockly/Blockly'
 import WorkspaceXML from '../../utils/default-xml'
 import stoneBrickBg from '../../assets/textures/stone_bricks.png'
 import oakPlanksBg from '../../assets/textures/oak_planks.png'
-
-
+import { Translation } from '../../langs/translation'
 
 enum Level {
     basic = "Basic",
@@ -25,34 +22,32 @@ export interface IExercise {
     workspace: string
 }
 
-const EXERCISES : Array<IExercise> = [
+const EXERCISES: Array<IExercise> = [
     {
         title: "Bloc programming",
-        mdFile: tutorialMD,
+        mdFile: "tutorial",
         lvl: Level.basic,
         workspace: WorkspaceXML.tutorial
     },
     {
         title: "Moving fade",
-        mdFile: movingFadeMD,
+        mdFile: "",
         lvl: Level.easy,
         workspace: WorkspaceXML.movingFade
     },
     {
         title: "1D Game of Life",
-        mdFile: movingFadeMD,
+        mdFile: "",
         lvl: Level.medium,
         workspace: WorkspaceXML.gameOfLife1D
     },
     {
         title: "Plus ou moins",
-        mdFile: movingFadeMD,
+        mdFile: "",
         lvl: Level.easy,
         workspace: WorkspaceXML.plusOuMoins
     },
-
 ]
-
 
 type ExerciseProps = {
     exercise: IExercise
@@ -60,34 +55,44 @@ type ExerciseProps = {
 
 const Exercise = (props: ExerciseProps) => {
 
+    const t: Function = Translation.translate;
     const [isOpen, setIsOpen] = useState<boolean>(false)
+    const [md, setMd] = useState<string>("")
 
-    const onWorkspaceButtonClick = (xml : string)=>{
+    const onWorkspaceButtonClick = (xml: string) => {
         let blockly = SingletonBlockly.getBlockly()
         blockly.setXml(xml)
     }
 
+    const getMd =() => Translation.getExercise(props.exercise.mdFile,setMd)
+
+    useEffect(()=>{
+       Translation.getTranslation().addOnChangeCallback(getMd) 
+    },[])
+
+    useEffect(() => {  
+        if(isOpen)
+            getMd()
+    },[isOpen])
+
     return (
         <div className='Exercise' style={{
             height: isOpen ? "100%" : "50px",
-            // backgroundColor: isOpen ? "rgba(200, 200, 255, 0.2)" : "",
-            overflowY: isOpen?"scroll":"hidden",
+            overflowY: isOpen ? "scroll" : "hidden",
             backgroundImage: `url(${oakPlanksBg})`
-        }}
-        // onClick={() => (isOpen?()=>{}:setIsOpen(!isOpen))}
-        >
+        }}>
             <div
-            className='ExerciseTitle'
-             onClick={()=>setIsOpen(!isOpen)}>
+                className='ExerciseTitle'
+                onClick={() => setIsOpen(!isOpen)}>
                 <h1>{props.exercise.title}</h1>
                 <img src={arrowSvg}
                     className={isOpen ? "flip" : ""}
-                    ></img>
+                ></img>
             </div>
             {
                 <div className='MD'>
-                    <button onClick={()=>onWorkspaceButtonClick(props.exercise.workspace)}>Importer le workspace ➡️</button>
-                    <Markdown>{props.exercise.mdFile}</Markdown>
+                    <button onClick={() => onWorkspaceButtonClick(props.exercise.workspace)}>{t("Exercise-import-workspace") + " ➡️"}</button>
+                    <Markdown>{md}</Markdown>
                 </div>
             }
         </div>
@@ -98,11 +103,11 @@ const Exercises = (/* props: ExercisesProps */) => {
 
     return (
         <div className='Exercises'
-        style={{
-            backgroundImage: `url(${stoneBrickBg})`
-        }}>
+            style={{
+                backgroundImage: `url(${stoneBrickBg})`
+            }}>
             {
-                EXERCISES.map((exercise: IExercise,key: number)=>{
+                EXERCISES.map((exercise: IExercise, key: number) => {
                     return (
                         <Exercise key={key} exercise={exercise}></Exercise>
                     )
