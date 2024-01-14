@@ -25,5 +25,10 @@ const en: { [key: string]: string } = {
     "draw_line": "Draw line",
     "draw_circle": "Draw circle",
 
+    //other
+    "block_programming": "Block programming",
+    "moving_fade": "Moving fade",
+    "1DGameOfLife": "1D Game of life",
+    "Guess_the_number": "Guess the number",
 }
 export default en;

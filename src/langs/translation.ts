@@ -1,14 +1,22 @@
 import en from './en.ts';
 import fr from './fr.ts';
+import es from './es.ts';
 
 export const langs = [
     {
         code: "en",
-        flag: "🇬🇧"
+        flag: "🇬🇧",
+        translation: en 
     },
     {
         code: "fr",
-        flag: "🇫🇷"
+        flag: "🇫🇷",
+        translation: fr 
+    },
+    {
+        code: 'es',
+        flag: '🇪🇸',
+        translation: es 
     }
 ]
 
@@ -16,11 +24,13 @@ export class Translation {
 
     private static ref: Translation;
     private lang: string;
+    private current_translation: { [key: string]: string } = {};
     private onChangeCallbacks: Function[] = [];
 
     constructor() {
         Translation.ref = this;
         this.lang = localStorage.getItem('lang') ?? "en";
+        this.current_translation = langs.find(l => l.code == this.lang)?.translation ?? {};
     }
 
     static getTranslation(): Translation {
@@ -41,6 +51,7 @@ export class Translation {
     setLang(lang: string) {
         this.lang = lang;
         localStorage.setItem('lang', lang);
+        this.current_translation = langs.find(l => l.code == lang)?.translation ?? {};
         this.onChangeCallbacks.forEach(callback => callback());
     }
 
@@ -53,15 +64,7 @@ export class Translation {
     }
 
     searchTranslation(key: string): string {
-        let ret = en[key]
-        if (this.getLang() === "fr") {
-            ret = fr[key] ?? ret
-        }
-
-        if (ret) {
-            return ret
-        }
-        return "NOT FOUND"
+        return this.current_translation[key] ?? key;
     }
 
     async searchExercise(key: string, callback : Function) {

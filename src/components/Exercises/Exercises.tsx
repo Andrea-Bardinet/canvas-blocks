@@ -8,6 +8,8 @@ import stoneBrickBg from '../../assets/textures/stone_bricks.png'
 import oakPlanksBg from '../../assets/textures/oak_planks.png'
 import { Translation } from '../../langs/translation'
 
+const t: Function = Translation.translate;
+
 enum Level {
     basic = "Basic",
     easy = "Easy",
@@ -16,7 +18,7 @@ enum Level {
 }
 
 export interface IExercise {
-    title: string,
+    title: Function,
     mdFile: string,
     lvl: Level,
     workspace: string
@@ -24,26 +26,26 @@ export interface IExercise {
 
 const EXERCISES: Array<IExercise> = [
     {
-        title: "Bloc programming",
+        title: ()=>t("block_programming"),
         mdFile: "tutorial",
         lvl: Level.basic,
         workspace: WorkspaceXML.tutorial
     },
     {
-        title: "Moving fade",
-        mdFile: "",
+        title: ()=>t("moving_fade"),
+        mdFile: "moving-fade",
         lvl: Level.easy,
         workspace: WorkspaceXML.movingFade
     },
     {
-        title: "1D Game of Life",
-        mdFile: "",
+        title: ()=>t("1DGameOfLife"),
+        mdFile: "1DGameOfLife",
         lvl: Level.medium,
         workspace: WorkspaceXML.gameOfLife1D
     },
     {
-        title: "Plus ou moins",
-        mdFile: "",
+        title: ()=>t("Guess_the_number"),
+        mdFile: "guess-the-number",
         lvl: Level.easy,
         workspace: WorkspaceXML.plusOuMoins
     },
@@ -55,7 +57,6 @@ type ExerciseProps = {
 
 const Exercise = (props: ExerciseProps) => {
 
-    const t: Function = Translation.translate;
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const [md, setMd] = useState<string>("")
 
@@ -84,7 +85,7 @@ const Exercise = (props: ExerciseProps) => {
             <div
                 className='ExerciseTitle'
                 onClick={() => setIsOpen(!isOpen)}>
-                <h1>{props.exercise.title}</h1>
+                <h1>{props.exercise.title()}</h1>
                 <img src={arrowSvg}
                     className={isOpen ? "flip" : ""}
                 ></img>

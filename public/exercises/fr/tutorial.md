@@ -1,35 +1,31 @@
-Bienvenue sur Canvas-block ! 😃
+# Bienvenue sur Canvas-block ! 😃
 
-Vous êtes sur le tutoriel, ici vous trouverez des exemples pour prendre en main l'environnement.
+Bienvenue dans ce tutoriel interactif sur Canvas-block, un environnement de programmation visuelle captivant ! Ici, vous découvrirez des exemples concrets pour vous familiariser avec cet outil unique.
 
-## Programmation
+## Programmation Visuelle par Blocs
 
-Ici, la programmation se fait à l'aide de blocs !<br><br>
-Chaque bloc décrit une action précise à effectuer. En combinant ces blocs, on peut obtenir des programmes plus complexes !
+Canvas-block utilise une approche de programmation visuelle où chaque action est représentée par un bloc. En combinant ces blocs, vous pouvez créer des programmes plus complexes sans écrire une seule ligne de code !
 
-## Exécute ton premier programme
+## Exécution de Votre Premier Programme
 
-Appuie sur le bouton vert "play" et regarde ce qu'il se passe !
+Passez à l'action en appuyant sur le bouton vert "play" et observez les résultats !
 
-Le fond change de couleur, puis un texte et une ligne sont dessinés.
+Le fond du canvas changera de couleur, un texte apparaîtra, suivi d'une ligne dessinée.
 
-## Explication
+## Explication des Blocs
 
-Chaque bloc que tu vois dans ton éditeur effectue une action.
-
-Commençons par le premier bloc en haut de la pile :
-
-Ce bloc permet de définir la taille (ou résolution) de notre canvas. Cela se définit en pixels.
+Chaque bloc dans votre éditeur accomplit une tâche spécifique. Décortiquons le premier bloc en haut de la pile :
 
 ![canvas_size block img](blocks/canvas_size.png)
 
-Cette instruction attend 1 seconde avant de passer à celle suivante.
+Ce bloc permet de définir la taille (ou résolution) de votre canvas en pixels.
 
 ![sleep block img](blocks/sleep.png)
 
-Le reste des instructions fait ce qu'elles indiquent, à savoir consécutivement :
+Cette instruction introduit une pause de 1 seconde avant de passer à l'instruction suivante.
 
-- Remplir une zone dans une couleur choisie
+Les autres blocs effectuent séquentiellement les actions suivantes :
+- Remplir une zone avec une couleur choisie
 - Attendre 1 seconde
 - Écrire du texte
 - Attendre 1 seconde
@@ -39,5 +35,4 @@ Le reste des instructions fait ce qu'elles indiquent, à savoir consécutivement
 
 ## Conclusion
 
-Bravo, vous savez maintenant lire et exécuter un petit programme.
-Il est temps de créer vos propres codes !
+Félicitations ! Vous avez maintenant appris à lire et exécuter un programme simple sur Canvas-block. C'est le moment idéal pour laisser libre cours à votre créativité et commencer à concevoir vos propres codes visuels. Explorez, expérimentez et amusez-vous en créant sur Canvas-block ! 🚀

@@ -25,5 +25,11 @@ const en: { [key: string]: string } = {
     "draw_line": "Tracer une ligne",
     "draw_circle": "Tracer un cercle",
 
+    // autres
+    "block_programming": "Programmation par blocs",
+    "moving_fade": "Dégradé mouvant",
+    "1DGameOfLife": "Jeu de la vie 1D",
+    "Guess_the_number": "Plus ou moins",
+
 }
 export default en;

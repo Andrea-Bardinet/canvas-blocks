@@ -1,34 +1,30 @@
-Welcome to Canvas-block! 😃
+# Welcome to Canvas-block! 😃
 
-You are in the tutorial, where you will find examples to get started with the environment.
+Welcome to this interactive tutorial on Canvas-block, a captivating visual programming environment! Here, you'll explore concrete examples to get acquainted with this unique tool.
 
-## Programming
+## Visual Programming with Blocks
 
-Here, programming is done using blocks! <br><br>
-Each block describes a specific action to be performed. By combining these blocks, you can create more complex programs!
+Canvas-block utilizes a visual programming approach where each action is represented by a block. By combining these blocks, you can create more complex programs without writing a single line of code!
 
-## Run your first program
+## Running Your First Program
 
-Press the green "play" button and see what happens!
+Take action by pressing the green "play" button and observe the results!
 
-The background changes color, then text and a line are drawn.
+The canvas background will change color, text will appear, followed by a drawn line.
 
-## Explanation
+## Explanation of Blocks
 
-Each block you see in your editor performs an action.
-
-Let's start with the first block at the top of the stack:
-
-This block sets the size (or resolution) of our canvas. This is defined in pixels.
+Each block in your editor accomplishes a specific task. Let's break down the first block at the top of the stack:
 
 ![canvas_size block img](blocks/canvas_size.png)
 
-This instruction waits for 1 second before moving on to the next one.
+This block sets the size (or resolution) of your canvas in pixels.
 
 ![sleep block img](blocks/sleep.png)
 
-The rest of the instructions do what they say, namely consecutively:
+This instruction introduces a 1-second pause before moving to the next instruction.
 
+The other blocks sequentially perform the following actions:
 - Fill an area with a chosen color
 - Wait for 1 second
 - Write text
@@ -39,5 +35,4 @@ The rest of the instructions do what they say, namely consecutively:
 
 ## Conclusion
 
-Congratulations, you now know how to read and execute a small program.
-It's time to create your own codes!
+Congratulations! You have now learned how to read and execute a simple program on Canvas-block. It's the perfect time to unleash your creativity and start designing your own visual codes. Explore, experiment, and have fun creating on Canvas-block! 🚀
