@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './style.css'
+import './style.scss'
 import ochreFroglight from '../../assets/textures/ochre_froglight_top.png'
 
 

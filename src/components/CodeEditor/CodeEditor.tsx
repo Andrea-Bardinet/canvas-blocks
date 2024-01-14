@@ -1,6 +1,6 @@
 import { Editor } from '@monaco-editor/react';
 import { useState, useRef, useEffect } from 'react'
-import './style.css'
+import './style.scss'
 import xmlFileSvg from './assets/xml-file.svg'
 import jsFileSvg from './assets/js-file.svg'
 import SwitchButton from '../SwitchButton/SwitchButton';

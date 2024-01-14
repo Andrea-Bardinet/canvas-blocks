@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import format from "date-fns/format";
-import './style.css'
+import './style.scss'
 // import bedrock from '../../assets/textures/bedrock.png'
 // import openSvg from "./assets/open-terminal.svg"
 

@@ -24,9 +24,6 @@ type MainNav = {
     onSizeChange: Function;
 }
 
-
-
-
 const MainNav = (props: MainNavProps) => {
 
     const t: Function = Translation.translate;
