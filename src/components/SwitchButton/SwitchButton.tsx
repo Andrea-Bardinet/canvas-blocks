@@ -1,5 +1,4 @@
 import { useRef, useState} from 'react'
-import { Tooltip } from 'react-tooltip';
 import './style.css'
 import ochreFroglight from '../../assets/textures/ochre_froglight_top.png'
 
@@ -52,7 +51,6 @@ const SwitchButton = (props: SwitchButtonProps) => {
                 ></img>
 
             </div>
-            <Tooltip id="my-tooltip" />
         </>
     )
 }

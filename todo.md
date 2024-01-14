@@ -3,10 +3,9 @@
 ## Interface : 
 
 
+
 ## blockly
 
-- Ajouter plein de blocks 
-- Créer plein d'exemples
 - Ajouter des tab de workspaces
 
 ### Blocks à créer :
@@ -28,12 +27,8 @@
 
  - tron
  - snake
-
-
-
-
-- Tracer des courbes
-- Generer du bruit
+ - Tracer des courbes
+ - Generer du bruit
 
 ## editor
 
@@ -47,6 +42,5 @@
 
 - Executer depuis shortcut avec editeur marche pas
 - Terminal non performant (freeze si bcp de nouvelles lignes)
-
 
 ## en cours

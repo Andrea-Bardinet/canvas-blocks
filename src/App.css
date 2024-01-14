@@ -49,6 +49,9 @@ body {
   background-color: white;
   image-rendering: pixelated;
   box-shadow: 3px 3px 7px black;
+}
 
+#my-tooltip{
+  z-index: 71;
 }
 

@@ -11,7 +11,6 @@ import LockableButton from '../LockableButton/LockableButton'
 import Exercises from '../Exercises/Exercises'
 import oakLogBg from '../../assets/textures/oak_log.png'
 import { Translation, langs } from '../../langs/translation'
-import { Tooltip } from 'react-tooltip'
 
 type MainNavProps = {
     onClickExecute: Function
@@ -90,7 +89,6 @@ const MainNav = (props: MainNavProps) => {
                 </select>
 
             </div>
-            <Tooltip id="my-tooltip"></Tooltip>
 
         </nav>
 
