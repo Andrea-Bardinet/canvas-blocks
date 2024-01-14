@@ -21,11 +21,11 @@ Let's start with the first block at the top of the stack:
 
 This block sets the size (or resolution) of our canvas. This is defined in pixels.
 
-![canvas_size block img](src/assets/blocks/canvas_size.png)
+![canvas_size block img](blocks/canvas_size.png)
 
 This instruction waits for 1 second before moving on to the next one.
 
-![sleep block img](src/assets/blocks/sleep.png)
+![sleep block img](blocks/sleep.png)
 
 The rest of the instructions do what they say, namely consecutively:
 
@@ -35,7 +35,7 @@ The rest of the instructions do what they say, namely consecutively:
 - Wait for 1 second
 - Draw a line
 
-![tuto block img](src/assets/blocks/tuto_blocks.png)
+![tuto block img](blocks/tuto_blocks.png)
 
 ## Conclusion
 

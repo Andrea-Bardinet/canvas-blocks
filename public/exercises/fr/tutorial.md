@@ -21,11 +21,11 @@ Commençons par le premier bloc en haut de la pile :
 
 Ce bloc permet de définir la taille (ou résolution) de notre canvas. Cela se définit en pixels.
 
-![canvas_size block img](src/assets/blocks/canvas_size.png)
+![canvas_size block img](blocks/canvas_size.png)
 
 Cette instruction attend 1 seconde avant de passer à celle suivante.
 
-![sleep block img](src/assets/blocks/sleep.png)
+![sleep block img](blocks/sleep.png)
 
 Le reste des instructions fait ce qu'elles indiquent, à savoir consécutivement :
 
@@ -35,7 +35,7 @@ Le reste des instructions fait ce qu'elles indiquent, à savoir consécutivement
 - Attendre 1 seconde
 - Tracer une ligne
 
-![tuto block img](src/assets/blocks/tuto_blocks.png)
+![tuto block img](blocks/tuto_blocks.png)
 
 ## Conclusion
 
