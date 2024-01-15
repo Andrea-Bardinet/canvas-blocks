@@ -6,6 +6,7 @@ import maximizeSvg from './assets/maximize.svg'
 import importSvg from './assets/import.svg'
 import exportSvg from './assets/export.svg'
 import tableSvg from "./assets/table.svg"
+import infoSvg from "./assets/info.svg"
 import SwitchButton from "../SwitchButton/SwitchButton"
 
 import './style.scss'
@@ -16,6 +17,22 @@ import ochreFroglight from '../../assets/textures/ochre_froglight_top.png'
 import { Translation, langs } from '../../langs/translation'
 import FileSaver from 'file-saver'
 import { SingletonBlockly } from '../Blockly/Blockly'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const t: Function = Translation.translate;
+const MySwal = withReactContent(Swal)
+
+const infos = () => {
+    MySwal.fire({
+        title: t("information"),
+        html: <>
+            <p>{t("information_content")} <a href='http://andreabardinet.fr'>Andréa Bardinet</a></p>
+             <a href='https://github.com/Andrea-Bardinet/canvas-blocks'>{t("information_github")}</a>
+        </>,
+
+    })
+}
 
 type MainNavProps = {
     onClickExecute: Function
@@ -31,7 +48,6 @@ type MainNav = {
 
 const MainNav = (props: MainNavProps) => {
 
-    const t: Function = Translation.translate;
     const [sizeState, setSizeState] = useState<boolean>(props.bigSize)
 
     const onSizeEvent = (value: boolean) => {
@@ -43,8 +59,8 @@ const MainNav = (props: MainNavProps) => {
         let input = document.createElement('input');
         input.type = 'file';
         input.onchange = _ => {
-            let file = Array.from(input.files??[])[0];
-            if(!file) return;
+            let file = Array.from(input.files ?? [])[0];
+            if (!file) return;
             let reader = new FileReader();
             reader.onload = _ => {
                 SingletonBlockly.getBlockly().setXml(reader.result as string);
@@ -131,7 +147,13 @@ const MainNav = (props: MainNavProps) => {
                     }
                 </select>
 
+                <button onClick={() => {
+                    infos()
+                }}>
+                    <img src={infoSvg}  ></img>
+                </button>
             </div>
+
 
         </nav>
     )
