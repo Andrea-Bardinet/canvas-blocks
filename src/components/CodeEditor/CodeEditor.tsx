@@ -52,7 +52,7 @@ const CodeEditor = (props: CodeEditorProps) => {
     }
 
     const setCode = (value: string) => {
-        
+
         editorRef?.current?.setValue(value)
     }
 
@@ -76,18 +76,18 @@ const CodeEditor = (props: CodeEditorProps) => {
     useEffect(() => {
         let code = ""
         // console.log(editorFile);
-        
+
         if (editorFile == CodeEditorFile.Js) code = blocklyRef.current.getJs()
         if (editorFile == CodeEditorFile.Xml) code = blocklyRef.current.getXml()
 
         // console.log(code);
-        
-        
+
+
         setCode(code)
     },)
 
     return (
-        <div className={'Editor ' }>
+        <div className={'Editor '}>
             <div className='EditorNav'>
                 <SwitchButton
                     default={editorFile == CodeEditorFile.Xml}
@@ -115,8 +115,6 @@ const CodeEditor = (props: CodeEditorProps) => {
                 theme='vs-dark'
                 defaultValue={editorFile == CodeEditorFile.Js ? blocklyRef.current.getJs() : blocklyRef.current.getXml()}
                 onMount={handleEditorDidMount}></Editor>
-
-
         </div>
     )
 }

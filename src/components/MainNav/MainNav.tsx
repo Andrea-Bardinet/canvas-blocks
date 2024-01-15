@@ -3,6 +3,8 @@ import playSvg from './assets/play.svg'
 // import editorSvg from './assets/editor.svg'
 import minimizeSvg from './assets/minimize.svg'
 import maximizeSvg from './assets/maximize.svg'
+import importSvg from './assets/import.svg'
+import exportSvg from './assets/export.svg'
 import tableSvg from "./assets/table.svg"
 import SwitchButton from "../SwitchButton/SwitchButton"
 
@@ -10,7 +12,10 @@ import './style.scss'
 import LockableButton from '../LockableButton/LockableButton'
 import Exercises from '../Exercises/Exercises'
 import oakLogBg from '../../assets/textures/oak_log.png'
+import ochreFroglight from '../../assets/textures/ochre_froglight_top.png'
 import { Translation, langs } from '../../langs/translation'
+import FileSaver from 'file-saver'
+import { SingletonBlockly } from '../Blockly/Blockly'
 
 type MainNavProps = {
     onClickExecute: Function
@@ -32,6 +37,27 @@ const MainNav = (props: MainNavProps) => {
     const onSizeEvent = (value: boolean) => {
         setSizeState(value)
         props.onSizeEvent(value)
+    }
+
+    const importXML = () => {
+        let input = document.createElement('input');
+        input.type = 'file';
+        input.onchange = _ => {
+            let file = Array.from(input.files??[])[0];
+            if(!file) return;
+            let reader = new FileReader();
+            reader.onload = _ => {
+                SingletonBlockly.getBlockly().setXml(reader.result as string);
+            };
+            reader.readAsText(file);
+
+        };
+        input.click();
+    }
+
+    const exportXML = () => {
+        var blob = new Blob([SingletonBlockly.getBlockly().getXml()], { type: "text/plain;charset=utf-8" });
+        FileSaver.saveAs(blob, "workspace.xml");
     }
 
     return (
@@ -59,6 +85,26 @@ const MainNav = (props: MainNavProps) => {
                     img={tableSvg}
                     onChange={(value: boolean) => onSizeEvent(value)}
                     tooltip={t('MainNav-contentTable')}></LockableButton>
+
+                <div className='nav-button'
+                    onClick={() => { importXML() }}
+                    style={{ backgroundImage: `url(${ochreFroglight})` }}>
+                    <img src={importSvg}  //onClick={() => props.onClickExecute()} 
+                        data-tooltip-id="my-tooltip"
+                        data-tooltip-content={t('MainNav-import')}
+                    ></img>
+                </div>
+
+                <div className='nav-button'
+                    onClick={() => { exportXML() }}
+                    style={{ backgroundImage: `url(${ochreFroglight})` }}>
+                    <img src={exportSvg}  //onClick={() => props.onClickExecute()} 
+                        data-tooltip-id="my-tooltip"
+                        data-tooltip-content={t('MainNav-export')}
+                        style={{ rotate: "-90deg" }}
+
+                    ></img>
+                </div>
 
                 <SwitchButton
                     img1={minimizeSvg}
@@ -88,9 +134,6 @@ const MainNav = (props: MainNavProps) => {
             </div>
 
         </nav>
-
-
-
     )
 }
 

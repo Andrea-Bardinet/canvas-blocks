@@ -72,13 +72,15 @@ function App() {
 
           <Pane minSize={navSize ? MIN_IN_MAX_SIZE : MIN_SIZE} maxSize={navSize ? MAX_SIZE : MIN_SIZE}  >
 
-
-            <MainNav
-              onClickExecute={execute}
-              onCanvasMaximize={setCanvasMaximize}
-              bigSize={false}
-              onSizeEvent={setNavSize}></MainNav>
-
+        {
+          blocklyRef.current != undefined ?
+          <MainNav
+          onClickExecute={execute}
+          onCanvasMaximize={setCanvasMaximize}
+          bigSize={false}
+          onSizeEvent={setNavSize}></MainNav> : <></>
+        }
+          
           </Pane>
           <SplitPane
             sashRender={() => { return "" }}

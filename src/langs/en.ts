@@ -5,6 +5,8 @@ const en: { [key: string]: string } = {
     "MainNav-contentTable": "Table of content",
     "MainNav-resize-tooltip1":'Minimize canvas',
     "MainNav-resize-tooltip2":'Maximize canvas',
+    "MainNav-import": "Import workspace",
+    "MainNav-export": "Export workspace",
     "Exercise-import-workspace": "Import workspace",
 
     //general
