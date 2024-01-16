@@ -40,7 +40,7 @@
         .ExerciseTitle {
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
             flex-grow: 1;
             height: auto;
@@ -59,8 +59,16 @@
                 margin: 0;
                 font-weight: bold;
                 text-align: center;
-                font-size: 2em;
+                font-size: 1.8em;
                 flex-grow: 1;
+            }
+
+            p{
+                font-family: "KGPrimaryPenmanship2";
+                margin: 0;
+                text-align: center;
+                font-size: 20px;
+                flex-grow: 1;  
             }
 
             img {

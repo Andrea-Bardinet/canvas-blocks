@@ -93,6 +93,15 @@ const addCodeGenerator = () => {
         return code;
     }
 
+    javascriptGenerator.forBlock['set_pixel'] = function (block:any, generator:any) {
+        var value_x = generator.valueToCode(block, 'x', Order.ATOMIC);
+        var value_y = generator.valueToCode(block, 'y', Order.ATOMIC);
+        var value_colour = generator.valueToCode(block, 'colour', Order.ATOMIC);
+
+        var code = `window.setPixel(${value_x},${value_y},${value_colour})\n`;
+        return code;
+    }
+
 }
 
 export default addCodeGenerator;

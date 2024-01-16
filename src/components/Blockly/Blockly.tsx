@@ -8,7 +8,6 @@ import addCanvasFunction from '../../utils/canvas-functions';
 import DarkTheme from '@blockly/theme-dark';
 import { BlocklyWorkspace } from 'react-blockly';
 import { javascriptGenerator } from 'blockly/javascript';
-// import WorkspaceXML from '../../utils/default-xml';
 import './style.scss'
 import { Translation } from '../../langs/translation';
 
@@ -50,23 +49,12 @@ const Blockly = (props: BlocklyProps) => {
     }
 
     const setXml = (xmlString: string) => {
-        // console.log(workspaceRef.current);
         let workspace = workspaceRef.current
-
-        // Supposez que vous avez une chaîne XML
-        // console.log(BlocklyApp);
-
-        // Obtenez une référence vers le workspace existant
-
-        // Effacez tous les blocs actuels du workspace
         workspace?.clear();
-
-        // Créez un parser DOM
         var parser = new DOMParser();
         var xmlDom = parser.parseFromString(xmlString, 'text/xml');
 
         if (workspace) {
-            // Chargez les blocs à partir du fichier XML dans le workspace
             BlocklyApp.Xml.domToWorkspace(xmlDom.documentElement, workspace);
         }
     }
@@ -115,7 +103,6 @@ const Blockly = (props: BlocklyProps) => {
                 }
             }}
             onInject={onBlocklyInject}
-            // onWorkspaceChange={workspaceDidChange}
             onXmlChange={(xml) => {
                 xmlRef.current = xml
                 localStorage.setItem("workspaceXml", xml);

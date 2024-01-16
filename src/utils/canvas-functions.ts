@@ -74,6 +74,11 @@ const addCanvasFunction = () => {
         window.ctx.fill();
     }
 
+    //@ts-ignore
+    window.setPixel = (x, y, color) => {
+        window.ctx.fillStyle = color;
+        window.ctx.fillRect(x, y, 1, 1);
+    }
 }
 
 export default addCanvasFunction;

@@ -11,10 +11,10 @@ import { Translation } from '../../langs/translation'
 const t: Function = Translation.translate;
 
 enum Level {
-    basic = "Basic",
-    easy = "Easy",
-    medium = "Medium",
-    hard = "Hard"
+    basic = "basic",
+    easy = "easy",
+    medium = "medium",
+    hard = "hard"
 }
 
 export interface IExercise {
@@ -89,6 +89,8 @@ const Exercise = (props: ExerciseProps) => {
                     backgroundImage: `url(${yellowTerracotta})`
                 }}>
                 <h1>{props.exercise.title()}</h1>
+                <br></br>
+                <p>({t(props.exercise.lvl)})</p>
                 <img src={arrowSvg}
                     className={isOpen ? "flip" : ""}
                 ></img>

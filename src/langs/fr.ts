@@ -1,4 +1,4 @@
-const en: { [key: string]: string } = {
+const fr: { [key: string]: string } = {
 
     //Components
     "MainNav-tooltipRun": "Executer le code",
@@ -7,6 +7,11 @@ const en: { [key: string]: string } = {
     "MainNav-resize-tooltip2":'Agrandir le canvas',
     "MainNav-import": "Importer un workspace",
     "MainNav-export": "Exporter un workspace",
+    "MainNav-info": "Information",
+    "MainNav-language": "Langue",
+    "WorkspaceMenu_rename_workspace": "Renommer le workspace",
+    "Exercise-import-workspace": "Importer le workspace",
+
 
     //general
     "width": "largeur",
@@ -15,6 +20,10 @@ const en: { [key: string]: string } = {
     "lineWidth": "epaisseur du trait",
     "sleep": "attendre",
     "seconds": "secondes",
+    "basic": "basique",
+    "easy": "facile",
+    "medium": "moyen",
+    "hard": "difficile",
 
 
     //Blocks
@@ -25,6 +34,7 @@ const en: { [key: string]: string } = {
     "print": "Afficher dans le terminal",
     "draw_line": "Tracer une ligne",
     "draw_circle": "Tracer un cercle",
+    "set_pixel": "Définir pixel",
 
     // nom des jeux
     "block_programming": "Programmation par blocs",
@@ -39,4 +49,4 @@ const en: { [key: string]: string } = {
     
 
 }
-export default en;
+export default fr;

@@ -27,8 +27,8 @@ const infos = () => {
     MySwal.fire({
         title: t("information"),
         html: <>
+            <a href='https://github.com/Andrea-Bardinet/canvas-blocks'>{t("information_github")}</a>
             <p>{t("information_content")} <a href='http://andreabardinet.fr'>Andréa Bardinet</a></p>
-             <a href='https://github.com/Andrea-Bardinet/canvas-blocks'>{t("information_github")}</a>
         </>,
 
     })
@@ -135,7 +135,11 @@ const MainNav = (props: MainNavProps) => {
                     backgroundColor='#ffffff77'
                 ></SwitchButton>
 
-                <select className='language-select' value={Translation.getTranslation().getLang()} onChange={(event) => Translation.getTranslation().setLang(event.target.value)}>
+                <select className='language-select'
+                    value={Translation.getTranslation().getLang()}
+                    onChange={(event) => Translation.getTranslation().setLang(event.target.value)}
+                    data-tooltip-id='my-tooltip'
+                    data-tooltip-content={t('MainNav-language')}>
                     {
                         langs.map((lang: any, key: number) => {
                             return (
@@ -149,7 +153,9 @@ const MainNav = (props: MainNavProps) => {
 
                 <button onClick={() => {
                     infos()
-                }}>
+                }}
+                    data-tooltip-id='my-tooltip'
+                    data-tooltip-content={t('MainNav-info')}>
                     <img src={infoSvg}  ></img>
                 </button>
             </div>

@@ -8,6 +8,7 @@ import SplitPane, { Pane } from 'split-pane-react'
 import MainNav from './components/MainNav/MainNav';
 import darkOakPlanks from './assets/textures/dark_oak_planks.png'
 import { Translation } from './langs/translation';
+import WorkspaceMenu from './components/WorkspaceMenu/WorkspaceMenu';
 
 const MIN_SIZE = '70px'
 const MAX_SIZE = "700px"
@@ -24,7 +25,6 @@ function App() {
   const [navSize, setNavSize] = useState(false)
 
   const [centralPanelSizes, setCentralPanelSizes] = useState<(number | string)[]>([MIN_SIZE, 'auto', '300px',]);
-  const [leftPanelSizes, setLeftPanelSizes] = useState<(number | string)[]>([500, 1,]);
   const [rightPanelSizes, setRightPanelSizes] = useState<(number | string)[]>(['auto', '300px',]);
 
 
@@ -72,32 +72,29 @@ function App() {
 
           <Pane minSize={navSize ? MIN_IN_MAX_SIZE : MIN_SIZE} maxSize={navSize ? MAX_SIZE : MIN_SIZE}  >
 
-        {
-          blocklyRef.current != undefined ?
-          <MainNav
-          onClickExecute={execute}
-          onCanvasMaximize={setCanvasMaximize}
-          bigSize={false}
-          onSizeEvent={setNavSize}></MainNav> : <></>
-        }
-          
-          </Pane>
-          <SplitPane
-            sashRender={() => { return "" }}
-            className='left-side'
-            split='horizontal'
-            sizes={leftPanelSizes}
-            onChange={(sizes) => setLeftPanelSizes(sizes)}
-          >
 
-            <Blockly
-              onMount={(blockly: IBlockly) => {
-                blocklyRef.current = blockly
-                codeEditorRef.current?.setBlockly(blockly)
-                setBlocklyMountState(true)
-              }}
-            ></Blockly>
+            <MainNav
+              onClickExecute={execute}
+              onCanvasMaximize={setCanvasMaximize}
+              bigSize={false}
+              onSizeEvent={setNavSize}></MainNav>
+
+          </Pane>
+          <Pane className='left-side'>
             {
+              blocklyRef.current != undefined ?
+              <></>//<WorkspaceMenu></WorkspaceMenu> 
+              : 
+              <></>
+            }
+              <Blockly
+                onMount={(blockly: IBlockly) => {
+                  blocklyRef.current = blockly
+                  codeEditorRef.current?.setBlockly(blockly)
+                  setBlocklyMountState(true)
+                }}
+              ></Blockly>
+{/*             {
               blocklyRef.current != undefined ?
 
                 <CodeEditor
@@ -106,13 +103,13 @@ function App() {
                 ></CodeEditor>
                 : <></>
             }
-          </SplitPane>
+ */}
+          </Pane>
 
 
 
           <div className='right-side'>
             <SplitPane
-
               sashRender={() => { return "" }}
               className='test'
               split='horizontal'
@@ -125,10 +122,7 @@ function App() {
                   width="100"
                   style={{ width: canvasMaximize ? "80%" : "auto" }}></canvas>
               </div>
-              <Pane minSize={'300px'} maxSize={'300px'}>
-
               <Terminal isOpenDefault={false} onMount={(value: ITerminal) => { terminalRef.current = value }}></Terminal>
-              </Pane>
             </SplitPane>
           </div>
 

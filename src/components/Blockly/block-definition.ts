@@ -294,7 +294,35 @@ const addCustomBlocks = (Blockly: any) => {
       "colour": 230,
       "tooltip": "Draw Circle at (x;y) with radius",
       "helpUrl": ""
-    }],
+    },{
+      "type" : "set_pixel",
+      "message0" : `${t("set_pixel")} %1 x %2 y %3 ${t("color")} %4`,
+      "args0" : [
+        {
+          "type" : "input_dummy"
+        },
+        {
+          "type" : "input_value",
+          "name" : "x",
+          "check" : "Number"
+        },
+        {
+          "type" : "input_value",
+          "name" : "y",
+          "check" : "Number"
+        },
+        {
+          "type" : "input_value",
+          "name" : "color",
+        }
+      ],
+      "inputsInline" : true,
+      "previousStatement" : null,
+      "nextStatement" : null,
+      "colour" : 230,
+      "tooltip" : "",
+      "helpUrl" : ""
+    }]
   )
 }
 

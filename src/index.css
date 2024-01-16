@@ -7,20 +7,24 @@ html, body{
 ::-webkit-scrollbar {
   width: 10px;
 }
+::-webkit-scrollbar {
+  height: 4px;              /* height of horizontal scrollbar ← You're missing this */
+  width: 4px;               /* width of vertical scrollbar */
+}
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #555;
+  background: #868585;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #242121;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #bababa;
+  background: #574c4c;
 }
 
 .hidden {
