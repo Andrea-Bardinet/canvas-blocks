@@ -3,12 +3,12 @@ import './App.css'
 import Blockly, { IBlockly } from './components/Blockly/Blockly'
 import { Tooltip } from 'react-tooltip';
 import Terminal, { ITerminal } from './components/Terminal/Terminal'
-import CodeEditor, { ICodeEditor } from './components/CodeEditor/CodeEditor'
+import /* CodeEditor, */ { ICodeEditor } from './components/CodeEditor/CodeEditor'
 import SplitPane, { Pane } from 'split-pane-react'
 import MainNav from './components/MainNav/MainNav';
 import darkOakPlanks from './assets/textures/dark_oak_planks.png'
 import { Translation } from './langs/translation';
-import WorkspaceMenu from './components/WorkspaceMenu/WorkspaceMenu';
+// import WorkspaceMenu from './components/WorkspaceMenu/WorkspaceMenu';
 
 const MIN_SIZE = '70px'
 const MAX_SIZE = "700px"

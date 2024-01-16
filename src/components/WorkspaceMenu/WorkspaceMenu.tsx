@@ -1,19 +1,16 @@
 import './style.scss'
-import { useEffect, useState, useReducer, useRef } from 'react';
-import { IBlockly, SingletonBlockly } from '../Blockly/Blockly';
+import { useEffect, useState,  } from 'react';
+import {  SingletonBlockly } from '../Blockly/Blockly';
 import WorkspaceXML from '../../utils/default-xml';
 import addSvg from './assets/add.svg'
 import exportSvg from './assets/export.svg'
 import deleteSvg from './assets/delete.svg'
 import editSvg from './assets/edit.svg'
-import blockSvg from './assets/block.svg'
 import jsFIle from './assets/js-file.svg'
 import stone from '../../assets/textures/stone.png'
 import Swal from 'sweetalert2';
 import { Translation } from '../../langs/translation';
-import { set } from 'date-fns';
 import FileSaver from 'file-saver';
-import { save } from 'blockly/core/serialization/blocks';
 
 const t: Function = Translation.translate;
 
@@ -26,7 +23,7 @@ export interface Workspace {
 
 const WorkspaceMenu = () => {
 
-    const [, forceUpdate] = useReducer(x => x + 1, 0);
+    // const [, forceUpdate] = useReducer(x => x + 1, 0);
 
     const [workspaces, setWorkspaces] = useState<Workspace[]>([])
     const [currentWorkspace, setCurrentWorkspace] = useState<number>()
@@ -129,13 +126,6 @@ const WorkspaceMenu = () => {
         var blob = new Blob([workspace.content], { type: "text/plain;charset=utf-8" });
         FileSaver.saveAs(blob, workspace.name);
     }
-
-    const saveCurrentWorkspace = () => {
-        
-
-
-
-
 
     const changeCurrentWorkspace = (i: number) => {
         setCurrentWorkspace(i)
