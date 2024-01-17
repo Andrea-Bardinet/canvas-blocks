@@ -5,11 +5,15 @@
 }
 
 .blocklyToolboxDiv{
-    background-color: rgba(0,0,0,0.5) !important;
+    color : black;
+    // background-color: #ccb27bbd !important;
+    background: #ccb27baa;
+    // box-shadow: -10px 0px 5px #ccb27b;
 }
 
 .blocklyFlyout{
-    background-color: rgba(0,0,0,0.6) !important;
+    background-color: #ccb27b88;;
+// translate: -5px 0px;
 }
 
 .blocklyFlyoutBackground{
@@ -19,4 +23,11 @@
 .blocklySvg{
     /* background-color: rgba(127,127,127,0.8); */
     background-image: url('../../assets/textures/sand.png') !important;
+    background-repeat: repeat !important;
+}
+
+.blocklyTreeSeparator{
+    border: none;
+    background-color: #ccb27b;
+    color: #ccb27b;
 }

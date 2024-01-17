@@ -1,11 +1,10 @@
-import {  useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import BlocklyApp from 'blockly'
 import toolbox from './toolbox';
 import addCustomBlocks from './block-definition';
 import addCodeGenerator from './code-generator'
 import addCanvasFunction from '../../utils/canvas-functions';
 // @ts-ignore
-import DarkTheme from '@blockly/theme-dark';
 import { BlocklyWorkspace } from 'react-blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 import './style.scss'
@@ -21,7 +20,7 @@ export interface IBlockly {
     setXml: Function,
 }
 
-export class SingletonBlockly { 
+export class SingletonBlockly {
     private static blockly: IBlockly;
 
     constructor(blockly: any) {
@@ -38,7 +37,7 @@ export class SingletonBlockly {
 const Blockly = (props: BlocklyProps) => {
 
     const workspaceRef = useRef<BlocklyApp.Workspace>()
-    const xmlRef = useRef<string>(localStorage.getItem("workspaceXml")??"")
+    const xmlRef = useRef<string>(localStorage.getItem("workspaceXml") ?? "")
 
     const getJs = (): string => {
         return javascriptGenerator.workspaceToCode(workspaceRef.current);
@@ -59,13 +58,13 @@ const Blockly = (props: BlocklyProps) => {
         }
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         addCanvasFunction()
-        Translation.getTranslation().addOnChangeCallback(()=>{
+        Translation.getTranslation().addOnChangeCallback(() => {
             addCustomBlocks(BlocklyApp)
             setXml(xmlRef.current)
         })
-    },[])
+    }, [])
 
     const onBlocklyInject = (workspace: any) => {
         workspaceRef.current = workspace
@@ -85,21 +84,32 @@ const Blockly = (props: BlocklyProps) => {
             initialXml={xmlRef.current}
             className={"Blockly "}
             workspaceConfiguration={{
+                collapse: true,
+                comments: false,
+                disable: false,
+                maxBlocks: Infinity,
+                trashcan: true,
+                horizontalLayout: false,
+                toolboxPosition: 'end',
+                css: true,
+                media: 'https://blockly-demo.appspot.com/static/media/',
+                rtl: false,
+                scrollbars: false,
+                sounds: true,
+                oneBasedIndex: true,
                 grid: {
                     spacing: 20,
-                    length: 3,
-                    colour: "#ffffff00",
-                    snap: true,
+                    length: 1,
+                    colour: '#888',
+                    snap: false
                 },
-                theme: DarkTheme,
                 zoom: {
                     controls: true,
                     wheel: true,
-                    startScale: 1.0,
+                    startScale: 1,
                     maxScale: 3,
                     minScale: 0.3,
-                    scaleSpeed: 1.2,
-                    pinch: true
+                    scaleSpeed: 1.2
                 }
             }}
             onInject={onBlocklyInject}

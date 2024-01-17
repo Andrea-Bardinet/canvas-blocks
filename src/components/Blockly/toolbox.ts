@@ -2,6 +2,385 @@ export default {
   'kind': 'categoryToolbox',
   'contents': [
     {
+      'kind': 'sep'
+    },
+    {
+      'kind': 'sep'
+    },
+    {
+      'kind': 'category',
+      'name': 'Canvas',
+      'categorystyle': 'canvas_category',
+      'contents': [
+        {
+          'kind': 'block',
+          'type': 'resize_canvas'
+        },
+        {
+          'kind': 'block',
+          'type': 'fill_canvas',
+          "inputs": {
+            "x": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 0
+                }
+              }
+            },
+            "y": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 0
+                }
+              }
+            },
+            "witdh": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "height": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+          }
+        },
+        {
+          'kind': 'block',
+          'type': 'fill_canvas_colour',
+          "inputs": {
+            "x": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 0
+                }
+              }
+            },
+            "y": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 0
+                }
+              }
+            },
+            "witdh": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "height": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "colour": {
+              "block": {
+                'type': 'colour_rgb',
+                'kind': 'block',
+                'inputs': {
+                  'RED': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 100,
+                      },
+                    },
+                  },
+                  'GREEN': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 50,
+                      },
+                    },
+                  },
+                  'BLUE': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 0,
+                      },
+                    },
+                  },
+                },
+              }
+            }
+          }
+        },
+        {
+          'kind': 'block',
+          'type': 'write_text_canvas',
+          "inputs": {
+            "x": {
+              "block": {
+                "type": "math_number",
+              }
+            },
+            "y": {
+              "block": {
+                "type": "math_number",
+              }
+            },
+            "text": {
+              "block": {
+                "type": "text"
+              }
+            },
+            "text_size": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+          }
+        },
+        {
+          'kind': 'block',
+          'type': 'get_pixel_color_canvas'
+        },
+        {
+          'kind': 'block',
+          'type': "draw_line",
+          "inputs": {
+            "x1": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "y1": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            }
+            ,
+            "x2": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 30
+                }
+              }
+            }
+            ,
+            "y2": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 30
+                }
+              }
+            }
+            ,
+            "lineWidth": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "colour": {
+              "block": {
+                'type': 'colour_rgb',
+                'kind': 'block',
+                'inputs': {
+                  'RED': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 100,
+                      },
+                    },
+                  },
+                  'GREEN': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 50,
+                      },
+                    },
+                  },
+                  'BLUE': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 0,
+                      },
+                    },
+                  },
+                },
+              }
+            }
+          }
+        },
+        {
+          "kind": "block",
+          "type": "sleep",
+          "inputs": {
+            "time": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 1
+                }
+              }
+            },
+          }
+        },
+        {
+          "kind": "block",
+          "type": "draw_circle",
+          "inputs": {
+            "x": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "y": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "radius": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "colour": {
+              "block": {
+                'type': 'colour_rgb',
+                'kind': 'block',
+                'inputs': {
+                  'RED': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 100,
+                      },
+                    },
+                  },
+                  'GREEN': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 50,
+                      },
+                    },
+                  },
+                  'BLUE': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 0,
+                      },
+                    },
+                  },
+                },
+              }
+            }
+          },
+        },
+        {
+          "kind": "block",
+          "type": "set_pixel",
+          "inputs": {
+            "x": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "y": {
+              "block": {
+                "type": "math_number",
+                "fields": {
+                  "NUM": 10
+                }
+              }
+            },
+            "color": {
+              "block": {
+                'type': 'colour_rgb',
+                'kind': 'block',
+                'inputs': {
+                  'RED': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 100,
+                      },
+                    },
+                  },
+                  'GREEN': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 50,
+                      },
+                    },
+                  },
+                  'BLUE': {
+                    'shadow': {
+                      'type': 'math_number',
+                      'fields': {
+                        'NUM': 0,
+                      },
+                    },
+                  },
+                },
+              }
+            }
+          },
+        }
+      ]
+    },
+
+    //====================================================================================================
+    //====================================================================================================
+    //====================================================================================================
+    {
+      'kind': 'sep'
+    }, {
+      'kind': 'sep'
+    },
+
+    {
       'kind': 'category',
       'name': 'Logic',
       'categorystyle': 'logic_category',
@@ -867,368 +1246,7 @@ export default {
     {
       'kind': 'sep'
     },
-    {
-      'kind': 'category',
-      'name': 'Canvas',
-      'contents': [
-        {
-          'kind': 'block',
-          'type': 'resize_canvas'
-        },
-        {
-          'kind': 'block',
-          'type': 'fill_canvas',
-          "inputs": {
-            "x": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 0
-                }
-              }
-            },
-            "y": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 0
-                }
-              }
-            },
-            "witdh": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 10
-                }
-              }
-            },
-            "height": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 10
-                }
-              }
-            },
-          }
-        },
-        {
-          'kind': 'block',
-          'type': 'fill_canvas_colour',
-          "inputs": {
-            "x": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 0
-                }
-              }
-            },
-            "y": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 0
-                }
-              }
-            },
-            "witdh": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 10
-                }
-              }
-            },
-            "height": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 10
-                }
-              }
-            },
-            "colour": {
-              "block": {
-                'type': 'colour_rgb',
-                'kind': 'block',
-                'inputs': {
-                  'RED': {
-                    'shadow': {
-                      'type': 'math_number',
-                      'fields': {
-                        'NUM': 100,
-                      },
-                    },
-                  },
-                  'GREEN': {
-                    'shadow': {
-                      'type': 'math_number',
-                      'fields': {
-                        'NUM': 50,
-                      },
-                    },
-                  },
-                  'BLUE': {
-                    'shadow': {
-                      'type': 'math_number',
-                      'fields': {
-                        'NUM': 0,
-                      },
-                    },
-                  },
-                },
-              }
-            }
-          }
-        },
-        {
-          'kind': 'block',
-          'type': 'write_text_canvas',
-          "inputs": {
-            "x": {
-              "block": {
-                "type": "math_number",
-              }
-            },
-            "y": {
-              "block": {
-                "type": "math_number",
-              }
-            },
-            "text": {
-              "block": {
-                "type": "text"
-              }
-            },
-            "text_size": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 10
-                }
-              }
-            },
-          }
-        },
-        {
-          'kind': 'block',
-          'type': 'get_pixel_color_canvas'
-        },
-        {
-          'kind': 'block',
-          'type': "draw_line",
-          "inputs": {
-            "x1": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 10
-                }
-              }
-            },
-            "y1": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 10
-                }
-              }
-            }
-            ,
-            "x2": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 30
-                }
-              }
-            }
-            ,
-            "y2": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 30
-                }
-              }
-            }
-            ,
-            "lineWidth": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 10
-                }
-              }
-            },
-            "colour": {
-              "block": {
-                'type': 'colour_rgb',
-                'kind': 'block',
-                'inputs': {
-                  'RED': {
-                    'shadow': {
-                      'type': 'math_number',
-                      'fields': {
-                        'NUM': 100,
-                      },
-                    },
-                  },
-                  'GREEN': {
-                    'shadow': {
-                      'type': 'math_number',
-                      'fields': {
-                        'NUM': 50,
-                      },
-                    },
-                  },
-                  'BLUE': {
-                    'shadow': {
-                      'type': 'math_number',
-                      'fields': {
-                        'NUM': 0,
-                      },
-                    },
-                  },
-                },
-              }
-            }
-          }
-        },
-        {
-          "kind": "block",
-          "type": "sleep",
-          "inputs": {
-            "time": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 1
-                }
-              }
-            },
-          }
-        },
-        {
-          "kind": "block",
-          "type": "draw_circle",
-          "inputs": {
-            "x": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 10
-                }
-              }
-            },
-            "y": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 10
-                }
-              }
-            },
-            "radius": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 10
-                }
-              }
-            },
-            "colour": {
-              "block": {
-                'type': 'colour_rgb',
-                'kind': 'block',
-                'inputs': {
-                  'RED': {
-                    'shadow': {
-                      'type': 'math_number',
-                      'fields': {
-                        'NUM': 100,
-                      },
-                    },
-                  },
-                  'GREEN': {
-                    'shadow': {
-                      'type': 'math_number',
-                      'fields': {
-                        'NUM': 50,
-                      },
-                    },
-                  },
-                  'BLUE': {
-                    'shadow': {
-                      'type': 'math_number',
-                      'fields': {
-                        'NUM': 0,
-                      },
-                    },
-                  },
-                },
-              }
-            }
-          },
-        },
-        {
-          "kind": "block",
-          "type": "set_pixel",
-          "inputs": {
-            "x": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 10
-                }
-              }
-            },
-            "y": {
-              "block": {
-                "type": "math_number",
-                "fields": {
-                  "NUM": 10
-                }
-              }
-            },
-            "color": {
-              "block": {
-                'type': 'colour_rgb',
-                'kind': 'block',
-                'inputs': {
-                  'RED': {
-                    'shadow': {
-                      'type': 'math_number',
-                      'fields': {
-                        'NUM': 100,
-                      },
-                    },
-                  },
-                  'GREEN': {
-                    'shadow': {
-                      'type': 'math_number',
-                      'fields': {
-                        'NUM': 50,
-                      },
-                    },
-                  },
-                  'BLUE': {
-                    'shadow': {
-                      'type': 'math_number',
-                      'fields': {
-                        'NUM': 0,
-                      },
-                    },
-                  },
-                },
-              }
-            }
-          },
-        }
-      ]
-    }
+
   ],
 };
 
