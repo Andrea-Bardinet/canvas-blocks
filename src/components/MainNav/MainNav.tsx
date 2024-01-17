@@ -28,7 +28,7 @@ const infos = () => {
         title: t("information"),
         html: <>
             <a href='https://github.com/Andrea-Bardinet/canvas-blocks'>{t("information_github")}</a>
-            <p>{t("information_content")} <a href='http://andreabardinet.fr'>Andréa Bardinet</a></p>
+            {/* <p>{t("information_content")} <a href='http://andreabardinet.fr'>Andréa Bardinet</a></p> */}
         </>,
 
     })
