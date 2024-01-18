@@ -1,6 +1,6 @@
 # Tutoriel : Jeu de Devine Mon Nombre avec Canvas-block
 
-Bienvenue dans ce tutoriel où nous allons créer un jeu interactif "Devine Mon Nombre" en utilisant Canvas-block. Suivez les étapes ci-dessous pour comprendre le fonctionnement du jeu.
+Bienvenue dans ce tutoriel où nous allons créer un jeu interactif "Devine Mon Nombre". Suivez les étapes ci-dessous pour comprendre le fonctionnement du jeu.
 
 ## Initialisation du Canvas
 

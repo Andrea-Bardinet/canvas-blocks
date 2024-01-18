@@ -1,6 +1,6 @@
 # Tutoriel : Simulation d'Automate Cellulaire avec Canvas-block
 
-Bienvenue dans ce tutoriel dédié à la création d'une simulation d'automate cellulaire à l'aide de Canvas-block. Dans cette exploration, nous allons découvrir comment générer des configurations de cellules vivantes et mortes, évoluant au fil des itérations selon les règles d'un automate cellulaire.
+Bienvenue dans ce tutoriel dédié à la création d'une simulation d'automate cellulaire. Dans cette exploration, nous allons découvrir comment générer des configurations de cellules vivantes et mortes, évoluant au fil des itérations selon les règles d'un automate cellulaire.
 
 ## Exécution du Programme
 
@@ -43,4 +43,4 @@ Les règles de cet automate cellulaire particulier, basé sur le célèbre "Jeu 
 
 ## Conclusion
 
-Félicitations, vous venez de créer une simulation d'automate cellulaire captivante ! N'hésitez pas à explorer et expérimenter avec les règles ainsi que les paramètres pour observer une variété de comportements. Amusez-vous bien sur Canvas-block ! 🧪🎨
+Félicitations, vous venez de créer une simulation d'automate cellulaire captivante ! N'hésitez pas à explorer et expérimenter avec les règles ainsi que les paramètres pour observer une variété de comportements ! 🧪🎨

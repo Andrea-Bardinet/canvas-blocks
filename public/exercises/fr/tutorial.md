@@ -1,6 +1,6 @@
 # Bienvenue sur Canvas-block ! 😃
 
-Bienvenue dans ce tutoriel interactif sur Canvas-block, un environnement de programmation visuelle captivant ! Ici, vous découvrirez des exemples concrets pour vous familiariser avec cet outil unique.
+Bienvenue dans ce tutoriel interactif sur Canvas-block, un environnement de programmation visuelle ! Ici, vous découvrirez des exemples concrets pour vous familiariser avec cet outil.
 
 ## Programmation Visuelle par Blocs
 
@@ -35,4 +35,4 @@ Les autres blocs effectuent séquentiellement les actions suivantes :
 
 ## Conclusion
 
-Félicitations ! Vous avez maintenant appris à lire et exécuter un programme simple sur Canvas-block. C'est le moment idéal pour laisser libre cours à votre créativité et commencer à concevoir vos propres codes visuels. Explorez, expérimentez et amusez-vous en créant sur Canvas-block ! 🚀
+Félicitations ! Vous avez maintenant appris à lire et exécuter un programme simple. C'est le moment idéal pour laisser libre cours à votre créativité et commencer à concevoir vos propres codes visuels. Explorez, expérimentez et amusez-vous ! 🚀

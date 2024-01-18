@@ -1,6 +1,6 @@
 # Tutoriel : Création d'un Dégradé de Couleurs avec Canvas-block
 
-Bienvenue sur Canvas-block ! Dans ce tutoriel, nous allons explorer la création d'un dégradé de couleurs captivant en utilisant des blocs de programmation.
+ Dans ce tutoriel, nous allons explorer la création d'un dégradé de couleurs captivant en utilisant des blocs de programmation.
 
 ## Exécution du Programme
 
@@ -37,4 +37,4 @@ Ajoutez une pause de 25 millisecondes entre chaque itération pour une transitio
 
 ![sleep block img](blocks/sleep2.png)
 
-Félicitations ! Vous venez de comprendre comment ce programme génère un dégradé de couleurs enchanteur. N'hésitez pas à explorer davantage et à expérimenter avec d'autres blocs pour créer vos propres œuvres visuelles captivantes. Amusez-vous bien sur Canvas-block ! 🎨
+Félicitations ! Vous venez de comprendre comment ce programme génère un dégradé de couleurs enchanteur. N'hésitez pas à explorer davantage et à expérimenter avec d'autres blocs pour créer vos propres œuvres visuelles captivantes ! 🎨
