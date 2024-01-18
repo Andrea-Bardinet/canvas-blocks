@@ -136,7 +136,7 @@ const MainNav = (props: MainNavProps) => {
                 ></SwitchButton>
 
                 <select className='language-select'
-                    value={Translation.getTranslation().getLang()}
+                    value={Translation.getTranslation().getLang().code}
                     onChange={(event) => Translation.getTranslation().setLang(event.target.value)}
                     data-tooltip-id='my-tooltip'
                     data-tooltip-content={t('MainNav-language')}>

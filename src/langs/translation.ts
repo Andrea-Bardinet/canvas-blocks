@@ -2,21 +2,35 @@ import en from './en.ts';
 import fr from './fr.ts';
 import es from './es.ts';
 
-export const langs = [
+import * as blocklyFr from 'blockly/msg/fr';
+import * as blocklyEn from 'blockly/msg/en';
+import * as blocklyEs from 'blockly/msg/es';
+
+export type Lang = {
+    code: string,
+    flag: string,
+    canvasBlocksTranslation: { [key: string]: string },
+    blocklyTranslation?: any
+}
+
+export const langs: Lang[] = [
     {
         code: "en",
         flag: "🇬🇧",
-        translation: en 
+        canvasBlocksTranslation: en,
+        blocklyTranslation: blocklyEn
     },
     {
         code: "fr",
         flag: "🇫🇷",
-        translation: fr 
+        canvasBlocksTranslation: fr,
+        blocklyTranslation: blocklyFr
     },
     {
         code: 'es',
         flag: '🇪🇸',
-        translation: es 
+        canvasBlocksTranslation: es,
+        blocklyTranslation: blocklyEs
     }
 ]
 
@@ -30,7 +44,7 @@ export class Translation {
     constructor() {
         Translation.ref = this;
         this.lang = localStorage.getItem('lang') ?? "en";
-        this.current_translation = langs.find(l => l.code == this.lang)?.translation ?? {};
+        this.current_translation = langs.find(l => l.code == this.lang)?.canvasBlocksTranslation ?? {};
     }
 
     static getTranslation(): Translation {
@@ -44,35 +58,37 @@ export class Translation {
         return Translation.getTranslation().searchTranslation(key);
     }
 
-    static async getExercise(key: string, callback : Function) {
-        return  Translation.getTranslation().searchExercise(key, callback);
+    static async getExercise(key: string, callback: Function) {
+        return Translation.getTranslation().searchExercise(key, callback);
     }
 
     setLang(lang: string) {
         this.lang = lang;
         localStorage.setItem('lang', lang);
-        this.current_translation = langs.find(l => l.code == lang)?.translation ?? {};
-        this.onChangeCallbacks.forEach(callback => callback());
+        this.current_translation = langs.find(l => l.code == lang)?.canvasBlocksTranslation ?? {};
+        this.onChangeCallbacks.forEach(callback => callback(this.langFromCode(lang)));
     }
 
-    getLang(): string {
-        return this.lang;
+    getLang(): Lang {
+        return this.langFromCode(this.lang);
     }
 
     addOnChangeCallback(callback: Function) {
         this.onChangeCallbacks.push(callback);
     }
+    
+    private langFromCode(code: string): Lang {
+        return langs.find(l => l.code == code)!;
+    }
 
-    searchTranslation(key: string): string {
+    private searchTranslation(key: string): string {
         return this.current_translation[key] ?? key;
     }
 
-    async searchExercise(key: string, callback : Function) {
-        if(key =="") return
+    private async searchExercise(key: string, callback: Function) {
+        if (key == "") return
         await fetch(`exercises/${this.lang}/${key}.md`)
             .then(resp => resp.text())
             .then(text => callback(text))
-
-        
     }
 }

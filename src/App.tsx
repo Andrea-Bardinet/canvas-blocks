@@ -3,11 +3,13 @@ import './App.css'
 import Blockly, { IBlockly } from './components/Blockly/Blockly'
 import { Tooltip } from 'react-tooltip';
 import Terminal, { ITerminal } from './components/Terminal/Terminal'
-import /* CodeEditor, */  { ICodeEditor } from './components/CodeEditor/CodeEditor'
-import SplitPane, { Pane } from 'split-pane-react'
+import /* CodeEditor, */ { ICodeEditor } from './components/CodeEditor/CodeEditor'
+import SplitPane, { Pane, SashContent } from 'split-pane-react'
 import MainNav from './components/MainNav/MainNav';
 import darkOakPlanks from './assets/textures/dark_oak_planks.png'
 import { Translation } from './langs/translation';
+import 'split-pane-react/esm/themes/default.css';
+
 // import WorkspaceMenu from './components/WorkspaceMenu/WorkspaceMenu';
 
 const MIN_SIZE = '70px'
@@ -68,7 +70,14 @@ function App() {
           split='vertical'
           sizes={centralPanelSizes}
           onChange={(sizes) => setCentralPanelSizes(sizes)}
-          sashRender={() => { return "" }}        >
+          sashRender={() => (
+            //@ts-ignore
+            <SashContent style={{ 
+              backgroundColor: 'brown', 
+              width: '2px' }} />
+        )}
+
+        >
 
           <Pane minSize={navSize ? MIN_IN_MAX_SIZE : MIN_SIZE} maxSize={navSize ? MAX_SIZE : MIN_SIZE}  >
 
@@ -83,22 +92,22 @@ function App() {
           <Pane className='left-side'>
             {
               blocklyRef.current != undefined ?
-              <></>//<WorkspaceMenu></WorkspaceMenu> 
-              : 
-              <></>
+                <></>//<WorkspaceMenu></WorkspaceMenu> 
+                :
+                <></>
             }
-              <Blockly
-                onMount={(blockly: IBlockly) => {
-                  blocklyRef.current = blockly
-                  codeEditorRef.current?.setBlockly(blockly)
-                  setBlocklyMountState(true)
-                }}
-              ></Blockly>
-            
- 
+            <Blockly
+              onMount={(blockly: IBlockly) => {
+                blocklyRef.current = blockly
+                codeEditorRef.current?.setBlockly(blockly)
+                setBlocklyMountState(true)
+              }}
+            ></Blockly>
+
+
           </Pane>
 
-{/*           <Pane>
+          {/*           <Pane>
           {
               blocklyRef.current != undefined ?
 
@@ -110,11 +119,17 @@ function App() {
             }
           </Pane>
  */}
-
+ 
 
           <div className='right-side'>
             <SplitPane
-              sashRender={() => { return "" }}
+              sashRender={() => (
+                //@ts-ignore
+                <SashContent style={{ 
+                  backgroundColor: 'brown',
+                  height: '2px',
+                 }} />
+            )}
               className='test'
               split='horizontal'
               sizes={rightPanelSizes}

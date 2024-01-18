@@ -8,7 +8,7 @@ import addCanvasFunction from '../../utils/canvas-functions';
 import { BlocklyWorkspace } from 'react-blockly';
 import { javascriptGenerator } from 'blockly/javascript';
 import './style.scss'
-import { Translation } from '../../langs/translation';
+import { Lang, Translation } from '../../langs/translation';
 
 interface BlocklyProps {
     onMount: Function,
@@ -60,9 +60,10 @@ const Blockly = (props: BlocklyProps) => {
 
     useEffect(() => {
         addCanvasFunction()
-        Translation.getTranslation().addOnChangeCallback(() => {
+        Translation.getTranslation().addOnChangeCallback((lang: Lang) => {
             addCustomBlocks(BlocklyApp)
             setXml(xmlRef.current)
+            BlocklyApp.setLocale(lang.blocklyTranslation)
         })
     }, [])
 
@@ -76,6 +77,8 @@ const Blockly = (props: BlocklyProps) => {
             setXml
         } as IBlockly)
         props.onMount(SingletonBlockly.getBlockly())
+        BlocklyApp.setLocale(Translation.getTranslation().getLang().blocklyTranslation)
+
     }
 
     return (
@@ -119,7 +122,6 @@ const Blockly = (props: BlocklyProps) => {
             }}
         />
     )
-
 }
 
 export default Blockly;
