@@ -37,6 +37,8 @@ export class SingletonBlockly {
 
 const Blockly = (props: BlocklyProps) => {
 
+    // const [, forceUpdate] = useReducer(x => x + 1, 0);
+
     const workspaceRef = useRef<BlocklyApp.Workspace>()
     const xmlRef = useRef<string>(localStorage.getItem("workspaceXml") ?? "")
 
@@ -66,9 +68,10 @@ const Blockly = (props: BlocklyProps) => {
     useEffect(() => {
         addCanvasFunction()
         Translation.getTranslation().addOnChangeCallback((lang: Lang) => {
+            BlocklyApp.setLocale(lang.blocklyTranslation)
             addCustomBlocks(BlocklyApp)
             setXml(xmlRef.current)
-            BlocklyApp.setLocale(lang.blocklyTranslation)
+            
         })
     }, [])
 
