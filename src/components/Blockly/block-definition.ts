@@ -6,34 +6,31 @@ const t: Function = Translation.translate;
 const addCustomBlocks = (Blockly: any) => {
 
   Blockly.defineBlocksWithJsonArray(
-    [{
-      "type": "resize_canvas",
-      "message0": `${t("resize_canvas")} %1 ${t("width")}: %2 px %3 ${t("height")}: %4 px`,
-      "args0": [
+    [
+    {
+      "type" : "resize_canvas",
+      "message0": `${t("resize_canvas")} %1 ${t("width")} (px) %2 ${t("height")} (px) %3`,
+      "args0" : [
         {
-          "type": "input_dummy"
+          "type" : "input_dummy"
         },
         {
-          "type": "field_number",
-          "name": "canvas_width",
-          "value": 100,
-          "precision": 1
+          "type" : "input_value",
+          "name" : "width",
+          "check" : "Number"
         },
         {
-          "type": "input_dummy"
-        },
-        {
-          "type": "field_number",
-          "name": "canvas_height",
-          "value": 100,
-          "precision": 1
+          "type" : "input_value",
+          "name" : "height",
+          "check" : "Number"
         }
       ],
-      "previousStatement": null,
-      "nextStatement": null,
-      "colour": 0,
-      "tooltip": "",
-      "helpUrl": ""
+      "inputsInline": false,
+      "previousStatement" : null,
+      "nextStatement" : null,
+      "colour" : 0,
+      "tooltip" : "",
+      "helpUrl" : ""
     },
     {
       "type": "fill_canvas",

@@ -7,11 +7,11 @@ const addCodeGenerator = () => {
     if (runned) return
     runned = true
 
-    javascriptGenerator.forBlock['resize_canvas'] = function (block: any) {
-        var number_canvas_width = block.getFieldValue('canvas_width');
-        var number_canvas_height = block.getFieldValue('canvas_height');
+    javascriptGenerator.forBlock['resize_canvas'] = function (block: any, generator: any) {
+        var value_canvas_width = generator.valueToCode(block, 'width', Order.ATOMIC);
+        var value_canvas_height = generator.valueToCode(block, 'height', Order.ATOMIC);
         // TODO: Assemble javascript into code variable.
-        var code = `window.setCanvasSize(${number_canvas_width},${number_canvas_height})\n`;
+        var code = `window.setCanvasSize(${value_canvas_width},${value_canvas_height})\n`;
         return code;
     };
 

@@ -3,7 +3,7 @@ import './App.css'
 import Blockly, { IBlockly } from './components/Blockly/Blockly'
 import { Tooltip } from 'react-tooltip';
 import Terminal, { ITerminal } from './components/Terminal/Terminal'
-import /* CodeEditor, */ { ICodeEditor } from './components/CodeEditor/CodeEditor'
+import /* CodeEditor, */  { ICodeEditor } from './components/CodeEditor/CodeEditor'
 import SplitPane, { Pane } from 'split-pane-react'
 import MainNav from './components/MainNav/MainNav';
 import darkOakPlanks from './assets/textures/dark_oak_planks.png'
@@ -94,7 +94,12 @@ function App() {
                   setBlocklyMountState(true)
                 }}
               ></Blockly>
-{/*             {
+            
+ 
+          </Pane>
+
+{/*           <Pane>
+          {
               blocklyRef.current != undefined ?
 
                 <CodeEditor
@@ -103,9 +108,8 @@ function App() {
                 ></CodeEditor>
                 : <></>
             }
- */}
           </Pane>
-
+ */}
 
 
           <div className='right-side'>
