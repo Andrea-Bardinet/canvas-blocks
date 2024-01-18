@@ -7,6 +7,7 @@ import importSvg from './assets/import.svg'
 import exportSvg from './assets/export.svg'
 import tableSvg from "./assets/table.svg"
 import infoSvg from "./assets/info.svg"
+import deleteSvg from "./assets/delete.svg"
 import SwitchButton from "../SwitchButton/SwitchButton"
 
 import './style.scss'
@@ -119,6 +120,16 @@ const MainNav = (props: MainNavProps) => {
                         data-tooltip-content={t('MainNav-export')}
                         style={{ rotate: "-90deg" }}
 
+                    ></img>
+                </div>
+
+                <div className='nav-button'
+                    onClick={() => { SingletonBlockly.getBlockly().clearWorkspace() }}
+                    style={{ backgroundImage: `url(${ochreFroglight})` }}>
+                    <img src={deleteSvg}  //onClick={() => props.onClickExecute()} 
+                        data-tooltip-id="my-tooltip"
+                        data-tooltip-content={t('MainNav-clear')}
+                        // style={{ rotate: "-90deg" }}
                     ></img>
                 </div>
 

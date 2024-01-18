@@ -9,6 +9,7 @@ const es: { [key: string]: string } = {
 "MainNav-export": "Exportar espacio de trabajo",
 "MainNav-info": "Información",
 "MainNav-language": "Idioma",
+"MainNav-clear": "Borrar espacio de trabajo",
 "WorkspaceMenu_rename_workspace": "Renombrar espacio de trabajo",
 "Exercise-import-workspace": "Importar espacio de trabajo",
 
@@ -40,6 +41,7 @@ const es: { [key: string]: string } = {
 "moving_fade": "Degradado móvil",
 "1DGameOfLife": "Juego de la Vida 1D",
 "Guess_the_number": "Adivina el número",
+"linesAndCircles": "Líneas y círculos",
 
 // Información
 "information": "Información",

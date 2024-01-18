@@ -65,6 +65,7 @@ const addCustomBlocks = (Blockly: any) => {
           "colour": "#ff0000"
         }
       ],
+      "inputsInline": false,
       "previousStatement": null,
       "nextStatement": null,
       "colour": 230,
@@ -104,6 +105,7 @@ const addCustomBlocks = (Blockly: any) => {
           "colour": "#ff0000"
         }
       ],
+      "inputsInline": false,
       "previousStatement": null,
       "nextStatement": null,
       "colour": 230,
@@ -183,7 +185,7 @@ const addCustomBlocks = (Blockly: any) => {
           "name": "colour"
         }
       ],
-      "inputsInline": true,
+      "inputsInline": false,
       "previousStatement": null,
       "nextStatement": null,
       "colour": 230,
@@ -232,7 +234,7 @@ const addCustomBlocks = (Blockly: any) => {
           "align": "RIGHT"
         }
       ],
-      "inputsInline": true,
+      "inputsInline": false,
       "previousStatement": null,
       "nextStatement": null,
       "colour": 230,
@@ -285,7 +287,7 @@ const addCustomBlocks = (Blockly: any) => {
           "align": "RIGHT"
         }
       ],
-      "inputsInline": true,
+      "inputsInline": false,
       "previousStatement": null,
       "nextStatement": null,
       "colour": 230,

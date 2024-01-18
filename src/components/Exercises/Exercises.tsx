@@ -11,10 +11,10 @@ import { Translation } from '../../langs/translation'
 const t: Function = Translation.translate;
 
 enum Level {
-    basic = "basic",
-    easy = "easy",
-    medium = "medium",
-    hard = "hard"
+    basic,
+    easy,
+    medium,
+    hard,
 }
 
 export interface IExercise {
@@ -49,6 +49,12 @@ const EXERCISES: Array<IExercise> = [
         lvl: Level.easy,
         workspace: WorkspaceXML.plusOuMoins
     },
+    {
+        title: ()=> t("linesAndCircles"),
+        mdFile: "lines-and-circles",
+        lvl: Level.easy,
+        workspace: WorkspaceXML.linesAndCircles
+    }
 ]
 
 type ExerciseProps = {
@@ -90,7 +96,7 @@ const Exercise = (props: ExerciseProps) => {
                 }}>
                 <h1>{props.exercise.title()}</h1>
                 <br></br>
-                <p>({t(props.exercise.lvl)})</p>
+                <p>({t(Level[props.exercise.lvl])})</p>
                 <img src={arrowSvg}
                     className={isOpen ? "flip" : ""}
                 ></img>
@@ -113,7 +119,9 @@ const Exercises = (/* props: ExercisesProps */) => {
                 backgroundImage: `url(${stoneBrickBg})`
             }}>
             {
-                EXERCISES.map((exercise: IExercise, key: number) => {
+                EXERCISES.sort((a,b)=>{
+                    return a.lvl - b.lvl
+                }).map((exercise: IExercise, key: number) => {
                     return (
                         <Exercise key={key} exercise={exercise}></Exercise>
                     )

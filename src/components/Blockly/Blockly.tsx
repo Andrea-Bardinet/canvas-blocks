@@ -18,6 +18,7 @@ export interface IBlockly {
     getJs: Function,
     getXml: Function,
     setXml: Function,
+    clearWorkspace: Function
 }
 
 export class SingletonBlockly {
@@ -58,6 +59,10 @@ const Blockly = (props: BlocklyProps) => {
         }
     }
 
+    const clearWorkspace = () => {
+        workspaceRef.current?.clear()
+    }
+
     useEffect(() => {
         addCanvasFunction()
         Translation.getTranslation().addOnChangeCallback((lang: Lang) => {
@@ -74,7 +79,8 @@ const Blockly = (props: BlocklyProps) => {
         new SingletonBlockly({
             getJs,
             getXml,
-            setXml
+            setXml,
+            clearWorkspace
         } as IBlockly)
         props.onMount(SingletonBlockly.getBlockly())
         BlocklyApp.setLocale(Translation.getTranslation().getLang().blocklyTranslation)

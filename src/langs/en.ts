@@ -9,6 +9,7 @@ const en: { [key: string]: string } = {
 "MainNav-export": "Export workspace",
 "MainNav-info": "Information",
 "MainNav-language": "Language",
+"MainNav-clear": "Clear workspace",
 "WorkspaceMenu_rename_workspace": "Rename workspace",
 "Exercise-import-workspace": "Import workspace",
 
@@ -40,6 +41,7 @@ const en: { [key: string]: string } = {
 "moving_fade": "Moving Gradient",
 "1DGameOfLife": "1D Game of Life",
 "Guess_the_number": "Guess the Number",
+"linesAndCircles": "Lines and Circles",
 
 // infos
 "information": "Information",

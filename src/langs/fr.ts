@@ -9,21 +9,24 @@ const fr: { [key: string]: string } = {
     "MainNav-export": "Exporter un workspace",
     "MainNav-info": "Information",
     "MainNav-language": "Langue",
+    "MainNav-clear": "Effacer le workspace",
     "WorkspaceMenu_rename_workspace": "Renommer le workspace",
     "Exercise-import-workspace": "Importer le workspace",
+
 
 
     //general
     "width": "largeur",
     "height": "hauteur",
     "color": "couleur",
-    "lineWidth": "epaisseur du trait",
+    "lineWidth": "épaisseur du trait",
     "sleep": "attendre",
     "seconds": "secondes",
     "basic": "basique",
     "easy": "facile",
     "medium": "moyen",
     "hard": "difficile",
+    
 
 
     //Blocks
@@ -41,6 +44,7 @@ const fr: { [key: string]: string } = {
     "moving_fade": "Dégradé mouvant",
     "1DGameOfLife": "Jeu de la vie 1D",
     "Guess_the_number": "Plus ou moins",
+    "linesAndCircles": "Des lignes et des cercles",
 
     // infos
     "information": "Information",
